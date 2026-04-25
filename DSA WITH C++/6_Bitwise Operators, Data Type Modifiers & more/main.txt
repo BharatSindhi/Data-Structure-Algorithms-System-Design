@@ -1,0 +1,144 @@
+⭐ 1. Bitwise Operators in C++
+
+Bitwise operators work on individual bits (0s and 1s) of numbers.
+They are used for low-level programming, memory optimization, encryption, etc.
+
+✅ List of Bitwise Operators
+Operator	Name			Meaning	Example
+&			Bitwise AND		1 if both bits are 1	a & b
+`	`		Bitwise OR		1 if any bit is 1
+^			Bitwise XOR		1 if bits are different	a ^ b
+~			Bitwise NOT		Flips bits	~a
+<<			Left Shift		Shift bits left	a << 2
+>>			Right Shift		Shift bits right	a >> 2
+
+⭐ Examples
+
+Example 1: & AND
+a = 5 → 0101
+b = 3 → 0011
+------------
+a & b = 0001 = 1
+
+Example 2: | OR
+0101
+0011
+------
+0111 = 7
+
+Example 3: ^ XOR
+0101
+0011
+------
+0110 = 6
+
+Example 4: Left Shift
+5 << 1 → 10
+Explanation: 0101 → 1010
+
+⭐ 2. Data Type Modifiers in C++
+
+Data type modifiers are used to change the size and range of basic data types.
+
+Modifiers:
+
+signed
+
+unsigned
+
+short
+
+long
+
+Used with:
+
+int
+
+char
+
+double (only long)
+
+✅ Integer Modifiers Table
+Data Type		Size				Range
+short int		2 bytes			-32,768 to 32,767
+unsigned 		short int		2 bytes	0 to 65,535
+int				4 bytes			-2,147,483,648 to 2,147,483,647
+unsigned int	4 bytes			0 to 4,294,967,295
+long int		4 or 8 bytes	large range
+unsigned long int	4 or 8 bytes	only positive
+long long int	8 bytes			very large range
+unsigned long long	8 bytes		only positive
+⭐ Examples
+Example 1:
+unsigned int a = 10;  
+// cannot store negative values
+
+Example 2:
+long long int big = 999999999999;
+
+⭐ 3. More Related Concepts (Important for Exams)
+✅ (A) Escape Sequences
+
+Used inside strings.
+
+Sequence	Meaning
+\n	New line
+\t	Tab
+\\	Backslash
+\"	Double quote
+\'	Single quote
+
+Example:
+
+cout << "Hello\nWorld";
+
+✅ (B) Type Casting
+
+Convert one data type to another.
+
+Implicit (Automatic)
+int a = 5;
+float b = a;
+
+Explicit (Manual)
+int a = (int)5.8;
+
+✅ (C) Storage Classes
+
+Defines lifetime and visibility of variables.
+
+Storage Class	Keyword	Stores Where?	Lifetime
+Automatic	auto	RAM	Function only
+Static	static	RAM	Entire program
+Register	register	CPU	Fast access
+Extern	extern	Global memory	Entire program
+⭐ Static Example
+void test() {
+    static int x = 0;
+    x++;
+    cout << x << endl;
+}
+
+
+Calling test() 3 times outputs:
+
+1 2 3
+
+⭐ Operator Precedence (Important)
+Priority	Operators
+Highest	++ --
+	* / %
+	+ -
+	< > <= >=
+	== !=
+	&&
+	`
+Lowest	=
+🎯 Short Exam Answers (Write This in Exams)
+Bitwise Operators
+
+"Bitwise operators perform operations on individual bits. Examples: AND (&), OR (|), XOR (^), NOT (~), left shift (<<), right shift (>>)."
+
+Data Type Modifiers
+
+"Data type modifiers such as short, long, signed, and unsigned modify the basic data types to change their size and range."

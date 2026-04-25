@@ -1,0 +1,71 @@
+⭐ IF–ELSE (Definition)
+
+The if–else statement in C++ is used to make decisions in a program.
+It allows the program to execute different blocks of code based on whether a condition is true or false.
+
+⭐ Syntax
+if (condition) {
+    // code runs if condition is true
+}
+else {
+    // code runs if condition is false
+}
+
+⭐ Example 1: Check positive or negative
+int num = -5;
+
+if (num > 0) {
+    cout << "Positive";
+}
+else {
+    cout << "Negative";
+}
+
+⭐ Example 2: Check even or odd
+int n;
+cin >> n;
+
+if (n % 2 == 0) {
+    cout << "Even";
+}
+else {
+    cout << "Odd";
+}
+
+⭐ Example 3: if–else–if ladder
+
+Used when multiple conditions must be checked.
+
+int marks;
+cin >> marks;
+
+if (marks >= 90) {
+    cout << "A Grade";
+}
+else if (marks >= 75) {
+    cout << "B Grade";
+}
+else if (marks >= 50) {
+    cout << "C Grade";
+}
+else {
+    cout << "Fail";
+}
+
+⭐ Example 4: Nested if
+
+An if inside another if.
+
+int age = 20;
+int id = 1;
+
+if (age >= 18) {
+    if (id == 1) {
+        cout << "Allowed";
+    }
+}
+
+⭐ Short Exam Answer
+
+"An if–else statement in C++ is used for decision making.
+If the condition is true, the 'if' block executes; otherwise, the 'else' block executes."

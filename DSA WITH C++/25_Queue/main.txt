@@ -1,0 +1,203 @@
+⭐ QUEUE (DSA)
+✅ Definition
+
+A Queue is a linear data structure that follows the FIFO principle:
+
+FIFO = First In, First Out
+
+Think of a line at a ticket counter:
+
+First person enters → first person leaves
+
+🧠 Basic Terms
+
+Enqueue → Insert element (at rear)
+
+Dequeue → Remove element (from front)
+
+Front → First element
+
+Rear → Last element
+
+Underflow → Dequeue from empty queue
+
+Overflow → Enqueue into full queue
+
+⭐ Basic Operations
+Operation	Meaning
+enqueue(x)	Insert element
+dequeue()	Remove element
+front()	Get first element
+isEmpty()	Check empty
+size()	Number of elements
+⭐ Queue Representation
+Front → [10 | 20 | 30 | 40] ← Rear
+
+⭐ Queue Implementation
+🔹 A. Queue Using Array
+#define MAX 5
+int q[MAX];
+int front = 0, rear = -1;
+
+void enqueue(int x) {
+    if(rear == MAX - 1)
+        cout << "Overflow";
+    else
+        q[++rear] = x;
+}
+
+void dequeue() {
+    if(front > rear)
+        cout << "Underflow";
+    else
+        front++;
+}
+
+
+❌ Wastes space after dequeue
+❌ Not efficient
+
+🔹 B. Circular Queue (Optimized)
+
+✔ Solves space wastage problem
+
+#define MAX 5
+int q[MAX];
+int front = -1, rear = -1;
+
+void enqueue(int x) {
+    if((rear + 1) % MAX == front)
+        cout << "Overflow";
+    else {
+        if(front == -1) front = 0;
+        rear = (rear + 1) % MAX;
+        q[rear] = x;
+    }
+}
+
+🔹 C. Queue Using Linked List
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* front = NULL;
+Node* rear = NULL;
+
+void enqueue(int x) {
+    Node* temp = new Node();
+    temp->data = x;
+    temp->next = NULL;
+
+    if(rear == NULL) {
+        front = rear = temp;
+        return;
+    }
+    rear->next = temp;
+    rear = temp;
+}
+
+void dequeue() {
+    if(front == NULL)
+        cout << "Underflow";
+    else {
+        Node* temp = front;
+        front = front->next;
+        delete temp;
+    }
+}
+
+
+✔ Dynamic size
+❌ Extra memory for pointer
+
+🔹 D. Queue Using STL (Recommended)
+#include <queue>
+queue<int> q;
+
+q.push(10);   // enqueue
+q.pop();      // dequeue
+q.front();    // front element
+q.back();     // rear element
+
+⭐ Types of Queues (VERY IMPORTANT)
+🔹 1. Simple Queue
+
+FIFO
+
+Insertion at rear, deletion at front
+
+🔹 2. Circular Queue
+
+Last position connects to first
+
+Efficient memory use
+
+🔹 3. Priority Queue
+
+Elements removed based on priority
+
+priority_queue<int> pq;        // max heap
+priority_queue<int, vector<int>, greater<int>> pq; // min heap
+
+🔹 4. Deque (Double-Ended Queue)
+
+Insert/delete from both ends
+
+deque<int> dq;
+dq.push_front(10);
+dq.push_back(20);
+
+⭐ Time & Space Complexity
+Operation	Time
+Enqueue	O(1)
+Dequeue	O(1)
+Front	O(1)
+
+📌 Space Complexity: O(n)
+
+⭐ Applications of Queue (VERY IMPORTANT)
+
+CPU scheduling
+
+BFS (Breadth First Search)
+
+Printer queue
+
+Call center systems
+
+Sliding window problems
+
+Producer–Consumer problem
+
+⭐ Queue vs Stack (Exam Favorite)
+Queue	Stack
+FIFO	LIFO
+Insert rear, delete front	Insert/delete at top
+Used in BFS	Used in DFS
+Scheduling	Recursion
+⭐ Advantages
+
+Simple and efficient
+
+Fair resource allocation
+
+Useful in real-time systems
+
+⭐ Disadvantages
+
+No random access
+
+Fixed size in array implementation
+
+Slightly complex circular logic
+
+⭐ Short Exam Answer
+
+"A queue is a linear data structure that follows the First In First Out (FIFO) principle. Insertion is done at the rear and deletion at the front."
+
+🎯 Interview Tip
+
+Always say:
+
+“Queues are ideal when elements must be processed in the order they arrive.”

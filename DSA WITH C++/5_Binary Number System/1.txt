@@ -1,0 +1,178 @@
+🔁 Goal of the Program
+
+Convert a decimal number → binary number
+Example:
+
+Decimal 2 → Binary 10
+Decimal 5 → Binary 101
+
+🧩 COMPLETE CODE (for reference)
+#include <iostream>
+using namespace std;
+
+int decToBinary(int n){
+    int ans = 0, pow = 1;
+
+    while (n > 0)
+    {
+        int rem = n % 2;
+        n /= 2;
+
+        ans += (rem * pow);
+        pow *= 10;
+    }
+    
+    return ans;
+}
+
+int main() {
+    for (int i = 0; i <= 10; i++)
+    {
+        cout << "decimal to binary : " << decToBinary(i) << endl;
+    }
+    
+    return 0;
+}
+
+🧠 BASIC CONCEPT YOU MUST KNOW
+🔹 How Decimal → Binary works
+
+We divide by 2 repeatedly and store the remainders.
+
+Example for 5:
+
+5 ÷ 2 = 2 remainder 1
+2 ÷ 2 = 1 remainder 0
+1 ÷ 2 = 0 remainder 1
+
+
+Binary = 101 (read bottom → top)
+
+🔍 FUNCTION EXPLANATION (STEP BY STEP)
+1️⃣ Function Declaration
+int decToBinary(int n)
+
+
+Takes a decimal number n
+
+Returns its binary form as an integer
+
+2️⃣ Variable Initialization
+int ans = 0, pow = 1;
+
+Variable	Meaning
+ans	        Stores final binary number
+pow	        Represents place value (1, 10, 100...)
+
+👉 Binary digits are added from right to left, so we use pow.
+
+3️⃣ While Loop
+while (n > 0)
+
+
+Loop continues until decimal number becomes 0
+
+4️⃣ Remainder Calculation
+int rem = n % 2;
+
+
+% 2 gives binary digit (0 or 1)
+
+This is the current least significant bit
+
+5️⃣ Divide the Number
+n /= 2;
+
+
+Moves to the next bit (just like shifting right)
+
+6️⃣ Build Binary Number
+ans += (rem * pow);
+
+
+Example:
+
+rem = 1, pow = 10
+ans = ans + 10
+
+7️⃣ Increase Place Value
+pow *= 10;
+
+Step	pow value
+1st bit	1
+2nd bit	10
+3rd bit	100
+
+8️⃣ Return Result
+return ans;
+
+🧪 DRY RUN (MOST IMPORTANT 🔥)
+Example: decToBinary(5)
+Step	n	rem	pow	ans
+start	5	-	1	0
+1	5	1	1	1
+2	2	0	10	1
+3	1	1	100	101
+end	0	-	-	101
+
+✔ Output = 101
+
+🔁 MAIN FUNCTION EXPLANATION
+for (int i = 0; i <= 10; i++)
+{
+    cout << "decimal to binary : " << decToBinary(i) << endl;
+}
+
+
+This prints:
+
+0 → 0
+1 → 1
+2 → 10
+3 → 11
+4 → 100
+...
+10 → 1010
+
+⚠️ IMPORTANT NOTE (VERY IMP)
+❌ Problem with this approach
+
+Binary number is stored as integer
+
+For large numbers → overflow risk
+
+Leading zeros are lost
+
+✅ BETTER & INTERVIEW-SAFE VERSION (STRING)
+string decToBinary(int n) {
+    string ans = "";
+
+    while(n > 0) {
+        ans = char('0' + n % 2) + ans;
+        n /= 2;
+    }
+    return ans;
+}
+
+
+✔ Used in interviews & real systems
+
+🧠 TIME & SPACE COMPLEXITY
+
+Time: O(log₂ n)
+
+Space: O(1) (or O(log n) for string)
+
+🧩 CONNECTION TO DSA TOPICS
+
+This logic is used in:
+
+Bit manipulation
+
+Binary representation
+
+Gray code
+
+Bit masking
+
+Computer organization

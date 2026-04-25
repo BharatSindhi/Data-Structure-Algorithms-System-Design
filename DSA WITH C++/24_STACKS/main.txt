@@ -1,0 +1,178 @@
+⭐ STACK (DSA)
+✅ Definition
+
+A Stack is a linear data structure that follows the LIFO principle:
+
+LIFO = Last In, First Out
+
+Think of a stack of plates:
+
+Add a plate → on top
+
+Remove a plate → from top only
+
+🧠 Basic Terms
+
+Push → Insert element
+
+Pop → Remove element
+
+Peek / Top → View top element
+
+Underflow → Pop from empty stack
+
+Overflow → Push into full stack
+
+⭐ Operations on Stack
+🔹 1. Push (Insert)
+
+Adds an element at the top.
+
+push(x)
+
+🔹 2. Pop (Delete)
+
+Removes the top element.
+
+pop()
+
+🔹 3. Peek / Top
+
+Returns top element without removing it.
+
+top()
+
+🔹 4. isEmpty
+
+Checks if stack is empty.
+
+⭐ Stack Implementation
+🔹 A. Stack Using Array
+#define MAX 5
+int stack[MAX];
+int top = -1;
+
+void push(int x) {
+    if(top == MAX-1)
+        cout << "Overflow";
+    else
+        stack[++top] = x;
+}
+
+void pop() {
+    if(top == -1)
+        cout << "Underflow";
+    else
+        top--;
+}
+
+
+✔ Simple
+❌ Fixed size
+
+🔹 B. Stack Using Linked List
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* top = NULL;
+
+void push(int x) {
+    Node* temp = new Node();
+    temp->data = x;
+    temp->next = top;
+    top = temp;
+}
+
+void pop() {
+    if(top == NULL)
+        cout << "Underflow";
+    else {
+        Node* temp = top;
+        top = top->next;
+        delete temp;
+    }
+}
+
+
+✔ Dynamic size
+❌ Extra memory for pointer
+
+🔹 C. Stack Using STL (Recommended)
+#include <stack>
+stack<int> s;
+
+s.push(10);
+s.pop();
+s.top();
+s.empty();
+
+⭐ Time & Space Complexity
+Operation	Time
+Push	O(1)
+Pop	O(1)
+Peek	O(1)
+
+📌 Space Complexity: O(n)
+
+⭐ Applications of Stack (VERY IMPORTANT)
+
+Function calls (Call Stack)
+
+Expression evaluation
+
+Undo / Redo operations
+
+Parenthesis checking
+
+Infix → Postfix conversion
+
+DFS in graphs
+
+Backtracking
+
+⭐ Classic Stack Problems (Must Practice)
+
+Reverse a string
+
+Check balanced parentheses
+
+Next Greater Element
+
+Stock Span problem
+
+Largest Rectangle in Histogram
+
+Min Stack
+
+⭐ Stack vs Queue (Exam Favorite)
+Stack	Queue
+LIFO	FIFO
+Insert/Delete at one end	Insert rear, delete front
+Used in recursion	Used in scheduling
+⭐ Advantages
+
+Simple structure
+
+Fast operations
+
+Useful for recursion & parsing
+
+⭐ Disadvantages
+
+No random access
+
+Limited access (top only)
+
+Overflow/Underflow issues
+
+⭐ Short Exam Answer
+
+"A stack is a linear data structure that follows the Last In First Out (LIFO) principle. All insertion and deletion operations are performed at the top."
+
+🎯 Interview Tip
+
+Always say:
+
+“Stacks are ideal when the last inserted element needs to be accessed first.”

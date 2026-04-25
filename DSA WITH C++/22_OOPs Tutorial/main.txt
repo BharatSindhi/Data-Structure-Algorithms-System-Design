@@ -1,0 +1,243 @@
+⭐ OOPS (Object-Oriented Programming System)
+✅ Definition
+
+OOPs is a programming paradigm based on the concept of objects, which contain data (variables) and methods (functions).
+
+👉 OOPs helps in:
+
+Code reusability
+
+Security
+
+Maintainability
+
+Real-world modeling
+
+⭐ Why OOPs? (Problems with Procedural Programming)
+
+No data security
+
+Hard to maintain large programs
+
+No reusability
+
+Code duplication
+
+OOPs solves all these problems.
+
+⭐ Core Concepts of OOPs (VERY IMPORTANT)
+
+There are 6 main pillars of OOPs:
+
+1️⃣ Class
+2️⃣ Object
+3️⃣ Encapsulation
+4️⃣ Abstraction
+5️⃣ Inheritance
+6️⃣ Polymorphism
+
+🔹 1. Class
+✅ Definition
+
+A class is a blueprint or template used to create objects.
+It defines data members and member functions.
+
+Syntax
+class Student {
+public:
+    int roll;
+    string name;
+
+    void display() {
+        cout << roll << " " << name;
+    }
+};
+
+🔹 2. Object
+✅ Definition
+
+An object is an instance of a class.
+It represents a real-world entity.
+
+Example
+Student s1;
+s1.roll = 1;
+s1.name = "Bharat";
+s1.display();
+
+🔹 3. Encapsulation
+✅ Definition
+
+Encapsulation is the process of binding data and functions together and hiding data using access specifiers.
+
+Access Specifiers
+Specifier	Access
+public	Anywhere
+private	Within class only
+protected	Class + derived class
+Example
+class Account {
+private:
+    int balance;
+
+public:
+    void setBalance(int b) {
+        balance = b;
+    }
+
+    int getBalance() {
+        return balance;
+    }
+};
+
+
+✔ Provides data security
+
+🔹 4. Abstraction
+✅ Definition
+
+Abstraction means hiding internal details and showing only essential features.
+
+Achieved using:
+
+Abstract classes
+
+Interfaces (pure virtual functions)
+
+Example
+class Shape {
+public:
+    virtual void draw() = 0; // pure virtual function
+};
+
+🔹 5. Inheritance
+✅ Definition
+
+Inheritance allows one class (child) to acquire properties of another class (parent).
+
+Syntax
+class Child : public Parent {
+};
+
+Example
+class Animal {
+public:
+    void eat() {
+        cout << "Eating";
+    }
+};
+
+class Dog : public Animal {
+};
+
+Dog d;
+d.eat();
+
+Types of Inheritance
+
+Single
+
+Multilevel
+
+Multiple
+
+Hierarchical
+
+Hybrid
+
+🔹 6. Polymorphism
+✅ Definition
+
+Polymorphism means many forms — same function name, different behavior.
+
+🔸 Compile-Time Polymorphism
+
+Achieved using function overloading.
+
+int add(int a, int b);
+float add(float a, float b);
+
+🔸 Run-Time Polymorphism
+
+Achieved using function overriding + virtual functions.
+
+class Base {
+public:
+    virtual void show() {
+        cout << "Base class";
+    }
+};
+
+class Derived : public Base {
+public:
+    void show() {
+        cout << "Derived class";
+    }
+};
+
+⭐ Constructor & Destructor
+🔹 Constructor
+
+Special function
+
+Same name as class
+
+Automatically called
+
+class Test {
+public:
+    Test() {
+        cout << "Constructor called";
+    }
+};
+
+🔹 Destructor
+
+Destroys object
+
+Called automatically
+
+Starts with ~
+
+~Test() {
+    cout << "Destructor called";
+}
+
+⭐ this Pointer
+
+Refers to current object.
+
+this->x = x;
+
+⭐ Static Members
+
+Shared among all objects.
+
+static int count;
+
+⭐ Difference: Class vs Object (Exam Favorite)
+Class	Object
+Blueprint	Instance
+Logical	Physical
+No memory	Takes memory
+⭐ OOPs Advantages
+
+Reusability
+
+Security
+
+Modularity
+
+Easy maintenance
+
+Real-world modeling
+
+⭐ Short Exam Answer
+
+"OOPs is a programming paradigm that uses objects and classes. It supports concepts like encapsulation, abstraction, inheritance, and polymorphism to improve code reusability and security."
+
+🎯 Interview Tip
+
+Always explain OOPs in this order:
+
+Class → Object → Encapsulation → Inheritance → Polymorphism → Abstraction

@@ -1,0 +1,162 @@
+⭐ RECURSION (DSA)
+✅ Definition
+
+Recursion is a programming technique where a function calls itself to solve a problem by breaking it into smaller subproblems.
+
+Every recursive function must have:
+
+Base Case – stops recursion
+
+Recursive Case – function calls itself
+
+⭐ Why Use Recursion?
+
+Simplifies complex problems
+
+Used in divide & conquer algorithms
+
+Natural fit for trees, graphs, backtracking
+
+Examples:
+
+Factorial
+
+Fibonacci
+
+Binary Search
+
+Merge Sort
+
+Tree traversals
+
+⭐ Basic Structure of Recursion
+return_type function(parameters) {
+    if (base_condition)
+        return value;
+    return function(smaller_input);
+}
+
+⭐ Example 1: Factorial
+int factorial(int n) {
+    if(n == 0)
+        return 1;          // base case
+    return n * factorial(n - 1);  // recursive case
+}
+
+⭐ How Recursion Works (Call Stack)
+
+Calling factorial(3):
+
+factorial(3)
+ → 3 * factorial(2)
+     → 2 * factorial(1)
+         → 1 * factorial(0)
+             → return 1
+
+
+Stack unwinds back:
+
+1 → 2 → 6
+
+⭐ Types of Recursion
+🔹 1. Direct Recursion
+
+Function calls itself directly.
+
+f() → f()
+
+🔹 2. Indirect Recursion
+
+Function calls another function which calls it back.
+
+f1() → f2() → f1()
+
+🔹 3. Tail Recursion
+
+Recursive call is the last statement.
+
+void print(int n) {
+    if(n == 0) return;
+    cout << n;
+    print(n - 1);
+}
+
+
+✔ Can be optimized by compiler
+
+🔹 4. Head Recursion
+
+Recursive call happens before any operation.
+
+void print(int n) {
+    if(n == 0) return;
+    print(n - 1);
+    cout << n;
+}
+
+🔹 5. Tree Recursion
+
+Function makes multiple recursive calls.
+
+f(n) → f(n-1) + f(n-2)
+
+
+Example: Fibonacci
+
+⭐ Time & Space Complexity of Recursion
+Pattern	Time	Space
+f(n-1)	O(n)	O(n)
+f(n/2)	O(log n)	O(log n)
+Fibonacci	O(2ⁿ)	O(n)
+Merge Sort	O(n log n)	O(n)
+⭐ Common Recursive Problems (DSA)
+
+Print numbers
+
+Sum of digits
+
+Reverse array/string
+
+Power calculation
+
+Binary search
+
+Permutations & combinations
+
+Backtracking problems
+
+⭐ Common Mistakes ❌
+
+Missing base case
+
+Wrong base condition
+
+Infinite recursion
+
+Stack overflow
+
+Not reducing problem size
+
+⭐ Recursion vs Iteration
+Recursion	Iteration
+Uses call stack	Uses loop
+Cleaner code	Faster execution
+More memory	Less memory
+Risk of stack overflow	No stack overflow
+⭐ When NOT to Use Recursion
+
+Very large input depth
+
+Performance-critical loops
+
+Simple repeated tasks
+
+⭐ Short Exam Answer
+
+"Recursion is a technique where a function calls itself to solve a problem. It consists of a base case and a recursive case. Recursion is used in divide and conquer algorithms and tree-based problems."
+
+🎯 Interview Tip
+
+Always explain recursion like this 👇
+
+“I reduce the problem size in every recursive call and stop at the base case.”

@@ -1,0 +1,125 @@
+🧠 What is Selection Sort?
+
+Selection Sort works by:
+
+Selecting the smallest element from the unsorted part
+
+Swapping it with the first unsorted position
+
+Repeating until the array is sorted
+
+✅ Your Code (Reference)
+void selectSort(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        int smallIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[smallIndex]) {
+                smallIndex = j;
+            }
+        }
+        swap(arr[i], arr[smallIndex]);
+    }
+}
+
+🔍 Step-by-Step Explanation
+🔹 Outer Loop (i)
+for (int i = 0; i < n; i++)
+
+
+Marks the current position
+
+Elements before i are already sorted
+
+🔹 smallIndex
+int smallIndex = i;
+
+
+Assumes current position has the smallest element
+
+🔹 Inner Loop (j)
+for (int j = i + 1; j < n; j++)
+
+
+Searches for the smallest element in the unsorted part
+
+🔹 Find Minimum
+if (arr[j] < arr[smallIndex]) {
+    smallIndex = j;
+}
+
+
+Updates index of smallest value
+
+🔹 Swap
+swap(arr[i], arr[smallIndex]);
+
+
+Places the smallest element at its correct position
+
+🧪 DRY RUN (MOST IMPORTANT 🔥)
+Initial Array
+[4, 5, 3, 1, 2]
+
+🔁 Pass 1 (i = 0)
+
+Unsorted part: [4, 5, 3, 1, 2]
+
+j	Compare	Smallest
+1	5 vs 4	4
+2	3 vs 4	3
+3	1 vs 3	1
+4	2 vs 1	1
+
+➡ smallIndex = 3
+
+Swap:
+
+[1, 5, 3, 4, 2]
+
+🔁 Pass 2 (i = 1)
+
+Unsorted part: [5, 3, 4, 2]
+
+j	Compare	Smallest
+2	3 vs 5	3
+3	4 vs 3	3
+4	2 vs 3	2
+
+Swap:
+
+[1, 2, 3, 4, 5]
+
+🔁 Pass 3 (i = 2)
+
+Unsorted part: [3, 4, 5]
+
+Already smallest → no change
+
+🔁 Pass 4 (i = 3)
+
+Unsorted part: [4, 5]
+
+Already sorted
+
+✅ Final Sorted Array
+1 2 3 4 5
+
+⏱ Time & Space Complexity
+Case	Time
+Best	O(n²)
+Average	O(n²)
+Worst	O(n²)
+Space	O(1)
+
+⚠️ Selection Sort does not adapt to sorted arrays.
+
+🧠 Bubble vs Selection (Quick Comparison)
+Feature	Bubble Sort	Selection Sort
+Swaps	Many	Minimal
+Stable	Yes	❌ No
+Best Case	O(n) (optimized)	O(n²)
+Adaptive	Yes	❌ No
+🧠 One-Line Exam / Interview Answer
+
+“Selection sort repeatedly selects the smallest element from the unsorted part and places it at the correct position.”
+

@@ -1,0 +1,89 @@
+🔥 Kadane’s Algorithm (Maximum Subarray Sum)
+
+Kadane’s Algorithm is an optimal O(n) solution to find the maximum sum of a contiguous subarray.
+
+🧠 Problem Statement
+
+Given an integer array nums, find the largest possible sum of any continuous subarray.
+
+Example
+
+nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output = 6
+Subarray = [4, -1, 2, 1]
+
+💡 Core Idea (Very Important)
+
+If the running sum becomes negative, it will only reduce future sums — so discard it and start fresh.
+
+🔑 Algorithm (Step-by-Step)
+
+Initialize:
+
+currSum = 0 → running sum
+
+maxSum = INT_MIN → best answer so far
+
+Traverse the array:
+
+Add current element to currSum
+
+Update maxSum
+
+If currSum < 0, reset currSum = 0
+
+Return maxSum
+
+✅ C++ Implementation (Interview-Ready)
+#include <vector>
+#include <climits>
+using namespace std;
+
+int maxSubArray(vector<int>& nums) {
+    int currSum = 0;
+    int maxSum = INT_MIN;
+
+    for (int x : nums) {
+        currSum += x;
+        maxSum = max(maxSum, currSum);
+        if (currSum < 0) currSum = 0;
+    }
+    return maxSum;
+}
+
+🧪 Dry Run (Most Important 🔥)
+
+Input:
+
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+i	nums[i]	currSum	maxSum	Action
+0	-2	-2	-2	reset
+1	1	1	1	keep
+2	-3	-2	1	reset
+3	4	4	4	start
+4	-1	3	4	keep
+5	2	5	5	update
+6	1	6	6	update
+7	-5	1	6	keep
+8	4	5	6	end
+
+✔ Answer = 6
+
+⚠️ Edge Case (All Negative Numbers)
+nums = [-3, -1, -2]
+
+
+Correct output = -1
+
+That’s why maxSum must start at INT_MIN, not 0.
+
+⏱ Complexity
+
+Time: O(n)
+
+Space: O(1)
+
+🧠 One-Line Interview Explanation
+
+“Kadane’s algorithm keeps a running sum and resets it when it becomes negative, tracking the maximum sum seen so far.”

@@ -1,0 +1,159 @@
+⭐ Binary Search Algorithm
+✅ Definition
+
+Binary Search is an efficient searching algorithm used to find an element in a sorted array.
+It works by repeatedly dividing the search space into half.
+
+⚠️ Important condition:
+➡️ The array must be sorted.
+
+⭐ Why Binary Search?
+
+Faster than Linear Search
+
+Reduces search space by half every step
+
+Used in large datasets
+
+⭐ How Binary Search Works (Step-by-Step)
+
+Set low = 0, high = n − 1
+
+Find mid = (low + high) / 2
+
+Compare arr[mid] with key
+
+If equal → element found
+
+If key < arr[mid] → search left half
+
+If key > arr[mid] → search right half
+
+Repeat until found or low > high
+
+⭐ Algorithm (Steps for Exam)
+
+Start
+
+Read sorted array and key
+
+Set low = 0, high = n − 1
+
+While low <= high
+
+Compute mid
+
+If arr[mid] == key, print found
+
+Else if key < arr[mid], set high = mid − 1
+
+Else set low = mid + 1
+
+If not found, print not found
+
+Stop
+
+⭐ Iterative Binary Search (C++ Code)
+#include <iostream>
+using namespace std;
+
+int binarySearch(int arr[], int n, int key) {
+    int low = 0, high = n - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == key)
+            return mid;
+        else if (key < arr[mid])
+            high = mid - 1;
+        else
+            low = mid + 1;
+    }
+    return -1;
+}
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int n = 5, key = 30;
+
+    int result = binarySearch(arr, n, key);
+
+    if (result != -1)
+        cout << "Element found at index " << result;
+    else
+        cout << "Element not found";
+}
+
+⭐ Recursive Binary Search
+int binarySearch(int arr[], int low, int high, int key) {
+    if (low > high)
+        return -1;
+
+    int mid = (low + high) / 2;
+
+    if (arr[mid] == key)
+        return mid;
+    else if (key < arr[mid])
+        return binarySearch(arr, low, mid - 1, key);
+    else
+        return binarySearch(arr, mid + 1, high, key);
+}
+
+⭐ Dry Run Example
+
+Array: {10, 20, 30, 40, 50}
+Key = 40
+
+Step	low	high	mid	arr[mid]
+1	0	4	2	30
+2	3	4	3	40 ✔
+
+Element found at index 3
+
+⭐ Time & Space Complexity
+⏱️ Time Complexity
+
+Best Case: O(1)
+
+Average Case: O(log n)
+
+Worst Case: O(log n)
+
+🧠 Space Complexity
+
+Iterative: O(1)
+
+Recursive: O(log n) (recursion stack)
+
+⭐ Advantages
+
+Very fast for large data
+
+Less comparisons
+
+Efficient memory usage (iterative)
+
+⭐ Disadvantages
+
+Works only on sorted data
+
+Not suitable for linked lists
+
+Sorting cost if data is unsorted
+
+⭐ Binary Search vs Linear Search (Exam Favorite)
+Feature	Linear Search	Binary Search
+Data order	Any	Sorted only
+Time	O(n)	O(log n)
+Speed	Slow	Fast
+Method	Sequential	Divide & conquer
+⭐ Short Exam Answer
+
+"Binary search is a searching technique used on sorted arrays. It works by repeatedly dividing the search interval into half. The time complexity of binary search is O(log n)."
+
+🎯 Interview Tip
+
+Always say this line 👇
+
+“Binary search works on sorted arrays and reduces the search space by half in every step.”

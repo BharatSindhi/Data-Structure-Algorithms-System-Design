@@ -1,0 +1,221 @@
+⭐ Maths for DSA (Complete Roadmap)
+
+Math in DSA is not heavy theory — it’s about patterns, logic, and fast calculations.
+
+🧠 Why Maths is Important in DSA
+
+Optimize brute-force solutions
+
+Reduce time complexity
+
+Solve number-based problems
+
+Used in arrays, recursion, DP, graphs, hashing
+
+🔢 1. Number System (Foundation)
+You must know:
+
+Decimal, Binary
+
+Binary ↔ Decimal conversion
+
+Powers of 2
+
+Key facts:
+
+2^10 ≈ 10^3
+
+Used in bit manipulation, time complexity, memory
+
+➗ 2. Divisibility & Modulo Arithmetic
+Modulo (%)
+a % b  // remainder
+
+Properties (VERY IMPORTANT):
+(a + b) % m = (a % m + b % m) % m
+(a * b) % m = (a % m * b % m) % m
+
+
+Used in:
+
+Large number problems
+
+Competitive programming
+
+Hashing
+
+🧮 3. Factors & Multiples
+Factors of n
+for(int i = 1; i*i <= n; i++)
+
+Time optimization:
+
+Normal → O(n)
+
+Optimized → O(√n)
+
+Used in:
+
+Prime checking
+
+GCD
+
+Divisors problems
+
+🔑 4. Prime Numbers
+What to know:
+
+Prime definition
+
+Efficient prime check
+
+Sieve of Eratosthenes
+
+Prime check (O(√n))
+for(int i = 2; i*i <= n; i++)
+
+Sieve (multiple queries)
+
+Time: O(n log log n)
+
+Space: O(n)
+
+Used in:
+
+Cryptography
+
+Number theory problems
+
+🔁 5. GCD & LCM (VERY IMPORTANT)
+GCD – Euclidean Algorithm
+gcd(a, b) = gcd(b, a % b)
+
+Relations:
+LCM × GCD = a × b
+
+
+Used in:
+
+Fractions
+
+Ratios
+
+Scheduling problems
+
+⚡ 6. Exponents & Fast Power
+Fast Exponentiation
+pow(a, n) → O(log n)
+
+
+Used in:
+
+Large power calculations
+
+Modular exponentiation
+
+🔢 7. Logarithms (Hidden but Important)
+Key ideas:
+
+Binary search → log₂(n)
+
+Recursion depth
+
+Divide & conquer
+
+Example:
+
+while(n > 1)
+  n /= 2;
+
+
+➡ O(log n)
+
+🔀 8. Permutation & Combination (Basics)
+Know conceptually:
+
+Permutation → order matters
+
+Combination → order doesn’t
+
+Used in:
+
+Backtracking
+
+Recursion
+
+Probability-based DSA problems
+
+🔂 9. Recursion Maths
+Common patterns:
+Pattern	Time
+f(n-1)	O(n)
+f(n/2)	O(log n)
+2f(n/2)	O(n)
+Fibonacci	O(2ⁿ)
+🧠 10. Bit Manipulation (High-Value Topic)
+Must know:
+
+Even/odd check
+
+Set, unset, toggle bits
+
+Count set bits
+
+Examples:
+
+n & 1        // odd or even
+n << 1       // multiply by 2
+n >> 1       // divide by 2
+
+
+Used in:
+
+Optimization
+
+Low-level problems
+
+Interview tricks
+
+📐 11. Geometry (Basic)
+
+Only basics:
+
+Distance formula
+
+Slope
+
+Area
+
+Used rarely but appears in:
+
+Coordinate problems
+
+Competitive coding
+
+📊 12. Probability & Pigeonhole Principle (Basic)
+Pigeonhole principle:
+
+If n+1 items are put in n boxes, at least one box has more than one item.
+
+Used in:
+
+Duplicate detection
+
+Proof-based questions
+
+🧾 Maths for DSA – Priority Order (Follow This)
+
+1️⃣ Modulo arithmetic
+2️⃣ Prime & factors
+3️⃣ GCD / LCM
+4️⃣ Logs & powers
+5️⃣ Bit manipulation
+6️⃣ Recursion maths
+
+🎯 DSA Interview Tip
+
+You don’t need formulas — you need intuition + patterns.
+
+Say this confidently 👇
+
+“I optimized the solution using mathematical observations to reduce time complexity.”

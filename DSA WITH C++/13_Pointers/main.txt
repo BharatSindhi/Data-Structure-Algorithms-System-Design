@@ -1,0 +1,172 @@
+⭐ POINTER in C++
+✅ Definition
+
+A pointer is a variable that stores the memory address of another variable instead of storing the value directly.
+
+Example:
+
+int a = 10;
+int *p = &a;
+
+
+Here:
+
+a stores 10
+
+p stores address of a
+
+⭐ Why Use Pointers?
+
+Efficient memory access
+
+Dynamic memory allocation
+
+Pass variables by reference
+
+Used in arrays, strings, structures
+
+Important for DSA (linked list, trees, graphs)
+
+⭐ Pointer Syntax
+data_type *pointer_name;
+
+
+Example:
+
+int *p;
+
+⭐ Address-of (&) and Dereference (*) Operators
+Operator	Meaning	Example
+&	        Address of variable	&a
+*	        Value at address	*p
+🧠 Memory Diagram (Conceptual)
+a = 10
+Address: 1000
+
+p = 1000
+*p = 10
+
+⭐ Basic Pointer Example
+int a = 10;
+int *p = &a;
+
+cout << a;    // 10
+cout << &a;   // address
+cout << p;    // address
+cout << *p;   // 10
+
+⭐ Pointer with Arrays
+
+Array name itself is a pointer.
+
+int arr[3] = {10, 20, 30};
+int *p = arr;
+
+cout << *p;       // 10
+cout << *(p + 1); // 20
+
+⭐ Pointer Arithmetic
+Operation	    Meaning
+p + 1	    Move to next element
+p - 1	    Move to previous
+p++	        Increment pointer
+p--	        Decrement pointer
+⭐ Pointer to Pointer
+
+Stores address of another pointer.
+
+int a = 10;
+int *p = &a;
+int **pp = &p;
+
+cout << **pp; // 10
+
+⭐ NULL Pointer
+
+Pointer that points to nothing.
+
+int *p = NULL;
+
+
+(Modern C++ uses nullptr)
+
+⭐ Dangling Pointer
+
+Pointer pointing to freed memory ❌
+
+int *p = new int(10);
+delete p;   // p is dangling now
+
+⭐ Void Pointer
+
+Can store address of any type.
+
+void *p;
+int a = 5;
+p = &a;
+
+
+(Type casting needed to access value)
+
+⭐ Dynamic Memory Allocation
+Using new
+int *p = new int;
+*p = 10;
+
+Free memory
+delete p;
+
+Dynamic array
+int *arr = new int[5];
+delete[] arr;
+
+⭐ Pointers & Functions (Pass by Reference)
+void change(int *x){
+    *x = 100;
+}
+
+int a = 10;
+change(&a);
+
+
+Value of a becomes 100
+
+⭐ Advantages of Pointers
+
+Efficient memory use
+
+Enable dynamic memory
+
+Used in complex data structures
+
+Faster parameter passing
+
+⭐ Disadvantages of Pointers
+
+Complex to understand
+
+Risk of memory leak
+
+Dangling pointers
+
+Segmentation fault if misused
+
+⭐ Pointer vs Reference (Exam Favorite)
+Pointer	Reference
+Can be NULL	Cannot be NULL
+Can change address	Cannot change
+Uses *	No dereference
+More flexible	Safer
+⭐ Short Exam Answer
+
+"A pointer is a variable that stores the address of another variable. Pointers are used for dynamic memory allocation, efficient data manipulation, and implementing data structures."
+
+🎯 Very Important Exam Tips
+
+Always initialize pointers
+
+Use nullptr
+
+Free dynamic memory
+
+Avoid dangling pointers

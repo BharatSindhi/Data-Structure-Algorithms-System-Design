@@ -1,0 +1,181 @@
+⭐ LINKED LIST (DSA)
+✅ Definition
+
+A Linked List is a linear data structure in which elements (called nodes) are stored in non-contiguous memory locations.
+Each node contains:
+
+Data
+
+Pointer (address of next node)
+
+📌 Unlike arrays, linked lists do not store elements in continuous memory.
+
+🧠 Why Linked List? (Why not Array?)
+Array	Linked List
+Fixed size	Dynamic size
+Contiguous memory	Non-contiguous memory
+Insertion costly	Easy insertion
+Fast access	Sequential access
+⭐ Structure of a Node
+struct Node {
+    int data;
+    Node* next;
+};
+
+⭐ Types of Linked List
+🔹 1. Singly Linked List
+
+Each node points to the next node only.
+
+Data | Next → Data | Next → Data | NULL
+
+Example:
+10 → 20 → 30 → NULL
+
+🔹 2. Doubly Linked List
+
+Each node has:
+
+Pointer to next
+
+Pointer to previous
+
+NULL ← 10 ↔ 20 ↔ 30 → NULL
+
+
+✔ Easy backward traversal
+❌ Extra memory
+
+🔹 3. Circular Linked List
+
+Last node points back to the first node.
+
+10 → 20 → 30
+ ↑__________|
+
+
+✔ No NULL pointer
+✔ Used in round-robin scheduling
+
+⭐ Basic Operations on Linked List
+🔹 1. Insertion
+a) Insert at Beginning
+newNode->next = head;
+head = newNode;
+
+b) Insert at End
+temp->next = newNode;
+newNode->next = NULL;
+
+c) Insert at Position
+
+Traverse till position − 1, then insert.
+
+🔹 2. Deletion
+a) Delete First Node
+head = head->next;
+
+b) Delete Last Node
+
+Traverse till second last node.
+
+c) Delete at Position
+
+Adjust links carefully.
+
+🔹 3. Traversal
+Node* temp = head;
+while(temp != NULL) {
+    cout << temp->data << " ";
+    temp = temp->next;
+}
+
+⭐ Complete Example: Singly Linked List (C++)
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+int main() {
+    Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+
+    head->data = 10;
+    head->next = second;
+
+    second->data = 20;
+    second->next = third;
+
+    third->data = 30;
+    third->next = NULL;
+
+    Node* temp = head;
+    while(temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+
+⭐ Time & Space Complexity
+Operation	Time
+Insertion at beginning	O(1)
+Insertion at end	O(n)
+Deletion	O(n)
+Traversal	O(n)
+Search	O(n)
+
+📌 Space Complexity: O(n)
+
+⭐ Linked List vs Array (Exam Favorite)
+Feature	Array	Linked List
+Size	Fixed	Dynamic
+Memory	Contiguous	Non-contiguous
+Insertion	Slow	Fast
+Access	Random	Sequential
+⭐ Advantages of Linked List
+
+Dynamic size
+
+Efficient insertion/deletion
+
+Better memory utilization
+
+No wastage of space
+
+⭐ Disadvantages of Linked List
+
+Extra memory for pointers
+
+No random access
+
+Slower traversal
+
+Complex implementation
+
+⭐ Important DSA Problems (Must Practice)
+
+Reverse linked list
+
+Detect loop (Floyd’s cycle)
+
+Find middle element
+
+Merge two sorted lists
+
+Remove nth node from end
+
+Palindrome linked list
+
+⭐ Short Exam Answer
+
+"A linked list is a linear data structure in which elements are stored in non-contiguous memory locations and connected using pointers. Each node contains data and a pointer to the next node."
+
+🎯 Interview Tip
+
+Always say:
+
+“Linked lists allow efficient insertion and deletion but do not support random access.”

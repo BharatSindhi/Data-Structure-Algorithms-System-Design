@@ -1,0 +1,148 @@
+🧠 What is Insertion Sort?
+
+Insertion Sort works the same way you sort playing cards in your hand:
+
+Take one element at a time
+
+Insert it into its correct position in the already sorted left part
+
+✅ Your Code (Reference)
+#include <iostream>
+using namespace std;
+
+void insertionSort(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        int curr = arr[i];     // element to insert
+        int pre = i - 1;       // index of previous element
+
+        while (pre >= 0 && arr[pre] > curr) {
+            arr[pre + 1] = arr[pre];  // shift right
+            pre--;
+        }
+        arr[pre + 1] = curr;   // insert at correct position
+    }
+}
+
+🔍 Step-by-Step Explanation
+🔹 Outer Loop (i)
+for (int i = 0; i < n; i++)
+
+
+Picks the current element to insert
+
+Left part (0 → i-1) is considered sorted
+
+🔹 Current Element
+int curr = arr[i];
+
+
+Element that must be placed correctly
+
+🔹 Previous Index
+int pre = i - 1;
+
+
+Used to compare with sorted elements on the left
+
+🔹 Shifting Logic
+while (pre >= 0 && arr[pre] > curr)
+
+
+Shift elements greater than curr one position to the right
+
+arr[pre + 1] = arr[pre];
+
+🔹 Insert Element
+arr[pre + 1] = curr;
+
+
+Places curr in its correct position
+
+🧪 DRY RUN (MOST IMPORTANT 🔥)
+Initial Array
+[4, 5, 3, 1, 2]
+
+🔁 Pass 1 (i = 0)
+curr = 4
+Sorted part = [4]
+
+
+No change
+
+🔁 Pass 2 (i = 1)
+curr = 5
+Sorted part = [4, 5]
+
+
+No change
+
+🔁 Pass 3 (i = 2)
+curr = 3
+
+
+Shifting:
+
+5 → right
+4 → right
+
+
+Insert:
+
+[3, 4, 5, 1, 2]
+
+🔁 Pass 4 (i = 3)
+curr = 1
+
+
+Shifting:
+
+5 → right
+4 → right
+3 → right
+
+
+Insert:
+
+[1, 3, 4, 5, 2]
+
+🔁 Pass 5 (i = 4)
+curr = 2
+
+
+Shifting:
+
+5 → right
+4 → right
+3 → right
+
+
+Insert:
+
+[1, 2, 3, 4, 5]
+
+✅ Final Sorted Array
+1 2 3 4 5
+
+⏱ Time & Space Complexity
+Case	Time
+Best (already sorted)	O(n) ✅
+Average	O(n²)
+Worst (reverse sorted)	O(n²)
+Space	O(1)
+🧠 Why Insertion Sort is Important
+
+✔ Stable sorting algorithm
+✔ In-place
+✔ Very efficient for small or nearly sorted arrays
+✔ Used inside Hybrid sorting algorithms
+
+🧠 One-Line Exam / Interview Answer
+
+“Insertion sort inserts each element into its correct position in the already sorted part of the array.”
+
+🔥 Bubble vs Selection vs Insertion (Quick View)
+Feature	Bubble	Selection	Insertion
+Adaptive	Yes	❌ No	✅ Yes
+Stable	Yes	❌ No	✅ Yes
+Best Case	O(n)	O(n²)	O(n)
+Swaps	Many	Few	Shifts

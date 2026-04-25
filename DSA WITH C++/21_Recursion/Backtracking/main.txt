@@ -1,0 +1,162 @@
+⭐ BACKTRACKING (DSA)
+✅ Definition
+
+Backtracking is an algorithmic technique where we build a solution step by step and remove (backtrack) the last choice if it does not lead to a valid solution.
+
+📌 In short:
+
+Try → Check → Backtrack
+
+🧠 Why Backtracking is Used
+
+When all possible solutions must be explored
+
+When constraints must be satisfied
+
+When brute force is needed but optimized with pruning
+
+Used in:
+
+Permutations & combinations
+
+N-Queens
+
+Sudoku Solver
+
+Rat in a Maze
+
+Subsets problems
+
+⭐ How Backtracking Works
+
+Choose an option
+
+Explore recursively
+
+If invalid → undo the choice
+
+Try next option
+
+This avoids unnecessary computation.
+
+⭐ General Backtracking Template (VERY IMPORTANT)
+void solve(parameters) {
+    if (base_case) {
+        save_solution;
+        return;
+    }
+
+    for (all choices) {
+        make_choice;
+        solve(next_parameters);
+        undo_choice;   // BACKTRACK
+    }
+}
+
+⭐ Example 1: Print All Permutations
+void permute(string &s, int index) {
+    if(index == s.length()) {
+        cout << s << endl;
+        return;
+    }
+
+    for(int i = index; i < s.length(); i++) {
+        swap(s[index], s[i]);      // make choice
+        permute(s, index + 1);     // explore
+        swap(s[index], s[i]);      // backtrack
+    }
+}
+
+
+📌 Key backtracking step:
+
+swap(s[index], s[i]); // undo
+
+⭐ Example 2: Subsets of an Array
+void subsets(int i, vector<int>& arr, vector<int>& curr) {
+    if(i == arr.size()) {
+        // print curr
+        return;
+    }
+
+    // include
+    curr.push_back(arr[i]);
+    subsets(i + 1, arr, curr);
+
+    // exclude (backtrack)
+    curr.pop_back();
+    subsets(i + 1, arr, curr);
+}
+
+⭐ Example 3: Rat in a Maze (Concept)
+
+Move Up, Down, Left, Right
+
+Mark visited
+
+If blocked → backtrack
+
+Stop when destination reached
+
+Used heavily in grid problems.
+
+⭐ Example 4: N-Queens (Classic)
+
+Place one queen per row
+
+Check column & diagonals
+
+If unsafe → remove queen
+
+⭐ Time & Space Complexity
+
+⚠️ Depends on problem, usually exponential.
+
+Problem	Time	Space
+Subsets	O(2ⁿ)	O(n)
+Permutations	O(n!)	O(n)
+N-Queens	O(n!)	O(n²)
+Sudoku	Very high	O(1) / O(81)
+
+📌 Space mostly comes from recursion stack.
+
+⭐ Backtracking vs Recursion
+Recursion	Backtracking
+Calls itself	Calls + undoes
+Solves one path	Explores all paths
+No undo step	Undo step required
+Simpler	More controlled
+
+👉 Backtracking is recursion + decision making
+
+❌ Common Mistakes
+
+Forgetting to undo choice
+
+Wrong base condition
+
+Not pruning invalid paths
+
+Infinite recursion
+
+Modifying shared data incorrectly
+
+⭐ When to Use Backtracking (INTERVIEW TRICK)
+
+Ask yourself:
+
+Are all solutions required?
+
+Are there choices at each step?
+
+Can invalid paths be pruned early?
+
+If yes → Backtracking
+
+⭐ Short Exam Answer
+
+"Backtracking is a technique that explores all possible solutions by making choices and undoing them when a solution becomes invalid. It is used in problems like permutations, N-Queens, and Sudoku."
+
+🎯 Interview Tip (Say This Confidently)
+
+“I use backtracking to explore all possibilities and prune invalid paths early by undoing the last choice.”

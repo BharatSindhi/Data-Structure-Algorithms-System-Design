@@ -1,0 +1,745 @@
+⭐ Time & Space Complexity (DSA)
+✅ Why We Need Complexity Analysis
+
+When solving a problem, we must know:
+
+How fast the algorithm runs → Time Complexity
+
+How much memory it uses → Space Complexity
+
+This helps us compare algorithms and choose the most efficient one.
+
+⭐ 1. Time Complexity
+✅ Definition
+
+Time Complexity is the amount of time an algorithm takes to run as a function of the input size n.
+
+It does NOT depend on machine speed.
+It depends on number of operations.
+
+⭐ Big-O Notation
+
+Time complexity is expressed using Big-O notation, which represents the worst-case performance.
+
+Examples:
+
+O(1) – Constant
+
+O(n) – Linear
+
+O(n²) – Quadratic
+
+⭐ Common Time Complexities (Most Important)
+Complexity	Name	Example
+O(1)	Constant	Access array element
+O(log n)	Logarithmic	Binary Search
+O(n)	Linear	Single loop
+O(n log n)	Linearithmic	Merge Sort
+O(n²)	Quadratic	Nested loops
+O(2ⁿ)	Exponential	Recursive subsets
+O(n!)	Factorial	Permutations
+⭐ Examples
+O(1) – Constant Time
+int x = arr[5];
+
+
+Only one operation → O(1)
+
+O(n) – Linear Time
+for(int i = 0; i < n; i++) {
+    cout << arr[i];
+}
+
+
+Runs n times → O(n)
+
+O(n²) – Quadratic Time
+for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+        cout << i << j;
+    }
+}
+
+
+Nested loop → n × n → O(n²)
+
+O(log n) – Logarithmic
+Binary Search
+
+
+Input size reduces by half each step → O(log n)
+
+⭐ Best, Average & Worst Case
+Case	Meaning
+Best Case	Minimum time
+Average Case	Expected time
+Worst Case	Maximum time (Big-O focuses on this)
+
+Example: Linear Search
+
+Best: element at first position → O(1)
+
+Worst: element at last position → O(n)
+
+⭐ 2. Space Complexity
+✅ Definition
+
+Space Complexity is the amount of extra memory used by an algorithm apart from input data.
+
+Includes:
+
+Variables
+
+Arrays
+
+Recursion stack
+
+Dynamic memory
+
+⭐ Examples
+O(1) – Constant Space
+int a, b, sum;
+
+
+Fixed memory → O(1)
+
+O(n) – Linear Space
+int arr[n];
+
+
+Memory grows with input → O(n)
+
+Recursive Space
+void func(int n) {
+    if(n == 0) return;
+    func(n - 1);
+}
+
+
+Uses recursion stack → O(n) space
+
+⭐ Time vs Space Trade-off
+
+Sometimes:
+
+Faster algorithm → uses more memory
+
+Less memory → slower algorithm
+
+Example:
+
+Hashing (fast search, more memory)
+
+Brute force (slow, less memory)
+
+⭐ How to Calculate Time Complexity (Steps)
+
+Ignore constants
+O(2n) → O(n)
+
+Ignore lower-order terms
+O(n² + n) → O(n²)
+
+Consider loops and recursion
+
+Take worst case
+
+⭐ Common DSA Examples (Exam Favorite)
+Algorithm	Time Complexity
+Linear Search	O(n)
+Binary Search	O(log n)
+Bubble Sort	O(n²)
+Selection Sort	O(n²)
+Insertion Sort	O(n²)
+Merge Sort	O(n log n)
+Quick Sort	O(n log n) (avg), O(n²) (worst)
+BFS / DFS	O(V + E)
+⭐ Short Exam Answers (Write This)
+Time Complexity
+
+"Time complexity is the measure of how the running time of an algorithm grows with input size. It is expressed using Big-O notation."
+
+Space Complexity
+
+"Space complexity is the amount of extra memory required by an algorithm during execution."
+
+⭐ Interview Tip (Important)
+
+Always explain in this order:
+
+Brute force approach with(Time complexity,Space complexity)
+
+Optimized approach  with(Time complexity,Space complexity)
+
+Time complexity     
+
+Space complexity
+
+Why optimized is better
+
+
+
+
+
+
+
+Below is a step-by-step, practical guide to how to calculate Time & Space Complexity — exactly the method used in DSA exams and interviews.
+
+⭐ How to Calculate Time Complexity
+✅ Core Idea
+
+Count how many times operations run as input size n grows, then express it in Big-O notation.
+
+🧠 Step-by-Step Method (Follow This Order)
+Step 1: Identify the input size
+
+Usually:
+
+Array length → n
+
+Matrix → n × m
+
+Number of nodes → n
+
+Step 2: Look for loops
+🔹 Single loop
+for(int i = 0; i < n; i++)
+
+
+➡ Runs n times → O(n)
+
+🔹 Nested loops
+for(int i = 0; i < n; i++)
+  for(int j = 0; j < n; j++)
+
+
+➡ n × n → O(n²)
+
+🔹 Loop with decreasing / increasing step
+for(int i = 0; i < n; i += 2)
+
+
+➡ Still O(n) (constants ignored)
+
+Step 3: Check condition-based loops
+while(n > 1) {
+    n = n / 2;
+}
+
+
+➡ Halving each time → O(log n)
+
+Step 4: Analyze recursion
+🔹 Linear recursion
+func(n) → func(n-1)
+
+
+➡ Depth n → O(n)
+
+🔹 Divide & conquer recursion
+func(n) → 2 calls of n/2
+
+
+Recurrence:
+
+T(n) = 2T(n/2) + O(n)
+
+
+➡ O(n log n) (Merge Sort)
+
+Step 5: Combine complexities
+
+Sequential blocks → ADD
+
+Nested blocks → MULTIPLY
+
+for(i=0;i<n;i++)   // O(n)
+for(j=0;j<n;j++)   // O(n)
+
+
+➡ O(n + n) = O(n)
+
+for(i=0;i<n;i++)
+  for(j=0;j<n;j++)
+
+
+➡ O(n × n) = O(n²)
+
+Step 6: Drop constants & lower terms
+Expression	Final
+O(2n)	O(n)
+O(n² + n)	O(n²)
+O(3n + 10)	O(n)
+⭐ How to Calculate Space Complexity
+✅ Core Idea
+
+Count extra memory used, not input itself.
+
+🧠 Step-by-Step Method
+Step 1: Count variables
+int a, b, c;
+
+
+➡ Constant → O(1)
+
+Step 2: Look for arrays / data structures
+int arr[n];
+
+
+➡ Depends on n → O(n)
+
+Step 3: Check recursion stack
+func(n) → func(n-1)
+
+
+➡ Stack depth n → O(n) space
+
+Step 4: Ignore input storage
+int arr[n]; // input
+
+
+❌ Do NOT count input array unless copied
+
+Step 5: Combine space usage
+
+Largest dominating structure wins
+
+⭐ Worked Examples (Very Important)
+✅ Example 1
+for(int i = 0; i < n; i++)
+    cout << i;
+
+
+Time: O(n)
+
+Space: O(1)
+
+✅ Example 2
+for(int i=0;i<n;i++)
+  for(int j=0;j<n;j++)
+    cout<<i<<j;
+
+
+Time: O(n²)
+
+Space: O(1)
+
+✅ Example 3 (Binary Search)
+while(l <= r) {
+    mid = (l+r)/2;
+}
+
+
+Time: O(log n)
+
+Space: O(1)
+
+✅ Example 4 (Recursion)
+void f(int n){
+    if(n==0) return;
+    f(n-1);
+}
+
+
+Time: O(n)
+
+Space: O(n) (call stack)
+
+⭐ Common Mistakes to Avoid ❌
+
+Counting constants
+
+Counting input memory
+
+Forgetting recursion stack
+
+Multiplying loops that are sequential
+
+⭐ Interview Rule (Golden Rule)
+
+Always explain complexity in one line
+
+Time: O(n log n), Space: O(n)
+
+⭐ Quick Cheat Sheet 🧾
+Code Pattern	Time
+Single loop	O(n)
+Nested loop	O(n²)
+Divide by 2	O(log n)
+Two independent loops	O(n)
+Recursion (n-1)	O(n)
+Merge Sort	O(n log n)
+
+
+
+
+
+
+
+
+
+Perfect 👍
+Let’s do guided practice problems on Time & Space Complexity — step-by-step, exactly how you should explain in exams & interviews.
+
+🧠 PRACTICE SET: Time & Space Complexity (with Solutions)
+🟢 Problem 1: Single Loop
+for(int i = 0; i < n; i++) {
+    cout << i;
+}
+
+✅ Analysis
+
+Loop runs n times
+
+One operation per iteration
+
+📌 Answer
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+📝 How to explain in exam:
+
+There is one loop running n times, so time complexity is O(n). Only one variable is used, so space complexity is O(1).
+
+🟢 Problem 2: Nested Loop
+for(int i = 0; i < n; i++) {
+    for(int j = 0; j < n; j++) {
+        cout << i << j;
+    }
+}
+
+✅ Analysis
+
+Outer loop → n
+
+Inner loop → n
+
+Total → n × n
+
+📌 Answer
+
+Time Complexity: O(n²)
+
+Space Complexity: O(1)
+
+📝 Exam line:
+
+Two nested loops each run n times, therefore time complexity is O(n²).
+
+🟢 Problem 3: Two Separate Loops
+for(int i = 0; i < n; i++)
+    cout << i;
+
+for(int j = 0; j < n; j++)
+    cout << j;
+
+✅ Analysis
+
+First loop → n
+
+Second loop → n
+
+Total → n + n = 2n
+
+📌 Answer
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+⚠️ Common mistake:
+❌ Writing O(n²)
+✅ Correct is O(n)
+
+🟢 Problem 4: Loop with Division
+while(n > 1) {
+    n = n / 2;
+}
+
+✅ Analysis
+
+n is halved each time
+
+Number of steps = log₂(n)
+
+📌 Answer
+
+Time Complexity: O(log n)
+
+Space Complexity: O(1)
+
+📝 Key phrase:
+
+Since the input size is divided by 2 each iteration, time complexity is logarithmic.
+
+🟢 Problem 5: Binary Search
+int l = 0, r = n-1;
+while(l <= r) {
+    int mid = (l+r)/2;
+    if(arr[mid] == key) break;
+    else if(arr[mid] < key) l = mid + 1;
+    else r = mid - 1;
+}
+
+📌 Answer
+
+Time Complexity: O(log n)
+
+Space Complexity: O(1)
+
+🟢 Problem 6: Recursion (Linear)
+void func(int n) {
+    if(n == 0) return;
+    func(n - 1);
+}
+
+✅ Analysis
+
+Function calls itself n times
+
+Stack grows with n
+
+📌 Answer
+
+Time Complexity: O(n)
+
+Space Complexity: O(n) (recursion stack)
+
+📝 Important:
+Even if no array is used, recursion uses memory!
+
+🟢 Problem 7: Recursion (Divide & Conquer)
+void func(int n) {
+    if(n <= 1) return;
+    func(n/2);
+    func(n/2);
+}
+
+✅ Analysis
+
+Two recursive calls
+
+Each call works on n/2
+
+📌 Answer
+
+Time Complexity: O(n)
+
+Space Complexity: O(log n)
+
+🟢 Problem 8: Array Allocation
+int arr[n];
+
+📌 Answer
+
+Time Complexity: O(1)
+
+Space Complexity: O(n)
+
+🟢 Problem 9: Loop Inside Recursion
+void func(int n) {
+    if(n == 0) return;
+    for(int i = 0; i < n; i++) {
+        cout << i;
+    }
+    func(n - 1);
+}
+
+✅ Analysis
+n + (n-1) + (n-2) + ... + 1 = n(n+1)/2
+
+📌 Answer
+
+Time Complexity: O(n²)
+
+Space Complexity: O(n)
+
+🧾 FINAL CHEAT FORMULA (Memorize This)
+Pattern	Time
+One loop	O(n)
+Nested loop	O(n²)
+Divide by 2	O(log n)
+Binary search	O(log n)
+Recursion n-1	O(n)
+Merge sort	O(n log n)
+Brute force	High (O(n²) / O(2ⁿ))
+🎯 INTERVIEW EXPLANATION TEMPLATE (VERY IMPORTANT)
+
+Say this confidently 👇
+
+“The algorithm uses a single loop that runs n times, therefore time complexity is O(n). It uses only constant extra variables, so space complexity is O(1).”
+
+
+
+
+
+⭐ How to Calculate Recursion Time & Space Complexity
+🧠 GOLDEN RULES (Remember These First)
+🔹 Time Complexity
+
+= Total number of function calls × Work done per call
+
+🔹 Space Complexity
+
+= Maximum recursion depth (call stack)
+
+Even if no array is used, recursion always uses stack memory.
+
+🧩 STEP-BY-STEP METHOD (Follow This Order)
+✅ Step 1: Count how many recursive calls are made
+
+Look at how many times the function calls itself.
+
+Example
+func(n-1);   // 1 recursive call
+func(n/2);   // 1 recursive call
+func(n-1);
+func(n-1);   // 2 recursive calls
+
+✅ Step 2: See how input size changes
+Change in n	Meaning
+n → n-1	Linear recursion
+n → n/2	Logarithmic recursion
+n → n-1 twice	Exponential
+n → n/2 twice	Divide & conquer
+✅ Step 3: Write the recurrence relation
+
+This is the most important step.
+
+Format:
+T(n) = (number of calls) × T(smaller input) + work
+
+✅ Step 4: Solve the recurrence (pattern-based)
+
+You don’t need advanced math — just recognize patterns.
+
+⭐ COMMON RECURSION PATTERNS (VERY IMPORTANT)
+🟢 1. Linear Recursion
+Code
+void f(int n){
+    if(n==0) return;
+    f(n-1);
+}
+
+Recurrence
+T(n) = T(n-1) + O(1)
+
+📌 Result
+
+Time: O(n)
+
+Space: O(n) (stack depth)
+
+🟢 2. Linear Recursion with Loop
+void f(int n){
+    if(n==0) return;
+    for(int i=0;i<n;i++)
+        cout<<i;
+    f(n-1);
+}
+
+Recurrence
+T(n) = T(n-1) + O(n)
+
+Expansion
+n + (n-1) + (n-2) + ... + 1 = n²
+
+📌 Result
+
+Time: O(n²)
+
+Space: O(n)
+
+🟢 3. Logarithmic Recursion
+void f(int n){
+    if(n<=1) return;
+    f(n/2);
+}
+
+Recurrence
+T(n) = T(n/2) + O(1)
+
+📌 Result
+
+Time: O(log n)
+
+Space: O(log n)
+
+🟢 4. Binary Recursion (Exponential)
+int fib(int n){
+    if(n<=1) return n;
+    return fib(n-1) + fib(n-2);
+}
+
+Recurrence
+T(n) = T(n-1) + T(n-2)
+
+📌 Result
+
+Time: O(2ⁿ)
+
+Space: O(n)
+
+⚠️ Important:
+Time is exponential, but space is only O(n) (height of recursion tree).
+
+🟢 5. Divide & Conquer (Merge Sort Pattern)
+void f(int n){
+    if(n<=1) return;
+    f(n/2);
+    f(n/2);
+}
+
+Recurrence
+T(n) = 2T(n/2) + O(1)
+
+📌 Result
+
+Time: O(n)
+
+Space: O(log n)
+
+🟢 6. Merge Sort (Classic)
+mergeSort(arr, n){
+    mergeSort(left);
+    mergeSort(right);
+    merge();
+}
+
+Recurrence
+T(n) = 2T(n/2) + O(n)
+
+📌 Result
+
+Time: O(n log n)
+
+Space: O(n) (auxiliary array)
+
+⭐ HOW TO CALCULATE SPACE COMPLEXITY (Recursion)
+Count maximum depth, NOT number of calls.
+Pattern	Stack Depth
+n → n-1	O(n)
+n → n/2	O(log n)
+Fibonacci	O(n)
+Merge Sort	O(log n)
+❌ COMMON MISTAKES
+
+Thinking Fibonacci uses O(2ⁿ) space ❌
+
+Ignoring recursion stack ❌
+
+Adding stack + array incorrectly ❌
+
+🎯 INTERVIEW ANSWER TEMPLATE (Use This)
+
+“The function makes one recursive call reducing the input by 1, so there are n calls. Each call does constant work, hence time complexity is O(n). The recursion depth is n, so space complexity is O(n).”
+
+🧾 ONE-LOOK CHEAT TABLE (Memorize)
+Code Pattern	Time	Space
+f(n-1)	O(n)	O(n)
+f(n/2)	O(log n)	O(log n)
+2 × f(n-1)	O(2ⁿ)	O(n)
+2 × f(n/2)	O(n)	O(log n)
+Merge Sort	O(n log n)	O(n)

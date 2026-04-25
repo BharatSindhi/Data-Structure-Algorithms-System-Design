@@ -1,0 +1,166 @@
+⭐ 2D ARRAY (Two-Dimensional Array)
+✅ Definition
+
+A 2D array is a collection of elements of the same data type, stored in the form of rows and columns (like a matrix).
+
+Example:
+
+int arr[3][4];
+
+
+This creates a 3 rows × 4 columns array.
+
+🧠 How to Imagine a 2D Array
+
+Think of it like a table:
+
+10 20 30
+40 50 60
+70 80 90
+
+
+Rows → horizontal
+
+Columns → vertical
+
+⭐ Declaration Syntax
+data_type array_name[rows][columns];
+
+
+Example:
+
+int matrix[2][3];
+
+⭐ Initialization
+✅ Method 1: Direct Initialization
+int arr[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+✅ Method 2: Inline Initialization
+int arr[2][3] = {1, 2, 3, 4, 5, 6};
+
+⭐ Accessing Elements
+cout << arr[0][1];   // row 0, column 1
+
+⭐ Taking User Input in 2D Array
+int arr[3][3];
+
+for(int i = 0; i < 3; i++) {
+    for(int j = 0; j < 3; j++) {
+        cin >> arr[i][j];
+    }
+}
+
+⭐ Printing a 2D Array
+for(int i = 0; i < 3; i++) {
+    for(int j = 0; j < 3; j++) {
+        cout << arr[i][j] << " ";
+    }
+    cout << endl;
+}
+
+🧠 Memory Representation (Very Important for DSA)
+
+2D arrays are stored in row-major order in C++.
+
+Example:
+
+int arr[2][3] = {1, 2, 3, 4, 5, 6};
+
+
+Memory layout:
+
+1 2 3 4 5 6
+
+
+Access formula:
+
+Address = Base + (i * columns + j) * size
+
+⭐ Passing 2D Array to Function
+
+Columns must be specified ❗
+
+void print(int arr[][3], int rows) {
+    for(int i = 0; i < rows; i++) {
+        for(int j = 0; j < 3; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+⭐ Common 2D Array Operations (DSA)
+🔹 1. Row-wise Sum
+for(int i = 0; i < r; i++) {
+    int sum = 0;
+    for(int j = 0; j < c; j++)
+        sum += arr[i][j];
+}
+
+
+⏱️ Time: O(r × c)
+
+🔹 2. Column-wise Sum
+for(int j = 0; j < c; j++) {
+    int sum = 0;
+    for(int i = 0; i < r; i++)
+        sum += arr[i][j];
+}
+
+🔹 3. Diagonal Sum (Square Matrix)
+int sum = 0;
+for(int i = 0; i < n; i++)
+    sum += arr[i][i];
+
+🔹 4. Matrix Transpose
+for(int i = 0; i < r; i++) {
+    for(int j = 0; j < c; j++) {
+        trans[j][i] = arr[i][j];
+    }
+}
+
+🔹 5. Search in 2D Array
+for(int i = 0; i < r; i++)
+    for(int j = 0; j < c; j++)
+        if(arr[i][j] == key)
+            return true;
+
+⭐ Time & Space Complexity
+Operation	Complexity
+Traversal	O(r × c)
+Search	O(r × c)
+Input / Output	O(r × c)
+Space	O(r × c)
+⭐ 2D Array vs 1D Array
+Feature	1D Array	2D Array
+Structure	Linear	Matrix
+Index	1 index	2 indices
+Usage	Lists	Tables, grids
+⭐ Advantages
+
+Easy to represent matrices
+
+Used in graphs, DP, games
+
+Fast access using index
+
+⭐ Limitations
+
+Fixed size
+
+Wasted memory if size is large
+
+Insertion/deletion costly
+
+⭐ Short Exam Answer
+
+"A 2D array is a collection of elements arranged in rows and columns. It is stored in contiguous memory locations in row-major order and accessed using two indices."
+
+🎯 DSA Interview Tip
+
+Always say:
+
+“Traversal of a 2D array takes O(rows × columns) time.”

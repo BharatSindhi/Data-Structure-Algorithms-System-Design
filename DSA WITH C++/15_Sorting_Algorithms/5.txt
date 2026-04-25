@@ -1,0 +1,113 @@
+🔍 Problem Recap (Sort Colors)
+
+Given an array containing only:
+
+0 → Red
+1 → White
+2 → Blue
+
+
+Sort the array in-place without using extra space.
+
+Example:
+
+Input  : [2, 0, 2, 1, 1, 0]
+Output : [0, 0, 1, 1, 2, 2]
+
+🧠 Core Idea (Very Important)
+
+We divide the array into four regions using three pointers:
+
+[ 0s | 1s | unknown | 2s ]
+   ^     ^     ^        ^
+  low   mid   mid      high
+
+🔑 Pointer Meaning
+Pointer	Role
+low	Position where next 0 should go
+mid	Current element under examination
+high	Position where next 2 should go
+✅ Your Code (Reference)
+void sortColors(vector<int>& nums) {
+    int low = 0, mid = 0, high = nums.size() - 1;
+
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low++], nums[mid++]);
+        } 
+        else if (nums[mid] == 1) {
+            mid++;
+        } 
+        else { // nums[mid] == 2
+            swap(nums[mid], nums[high--]);
+        }
+    }
+}
+
+🔍 Step-by-Step Logic
+Case 1️⃣ nums[mid] == 0
+swap(nums[low++], nums[mid++]);
+
+
+Place 0 in the left (0s region)
+
+Move both low and mid
+
+Case 2️⃣ nums[mid] == 1
+mid++;
+
+
+1 already belongs in the middle
+
+Just move mid
+
+Case 3️⃣ nums[mid] == 2
+swap(nums[mid], nums[high--]);
+
+
+Place 2 in the right (2s region)
+
+Decrease high
+
+❗ Do NOT increment mid (new value must be checked)
+
+🧪 DRY RUN (MOST IMPORTANT 🔥)
+Input
+nums = [2, 0, 2, 1, 1, 0]
+
+low	mid	high	nums[mid]	Action	Array
+0	0	5	2	swap(mid, high)	[0,0,2,1,1,2]
+0	0	4	0	swap(low, mid)	[0,0,2,1,1,2]
+1	1	4	0	swap(low, mid)	[0,0,2,1,1,2]
+2	2	4	2	swap(mid, high)	[0,0,1,1,2,2]
+2	2	3	1	mid++	[0,0,1,1,2,2]
+2	3	3	1	mid++	[0,0,1,1,2,2]
+2	4	3	—	stop	✔
+✅ Final Output
+0 0 1 1 2 2
+
+🧠 Why This Algorithm Works
+
+Each element is visited at most once
+
+No extra space is used
+
+The array is partitioned dynamically
+
+⏱ Time & Space Complexity
+
+Time: O(n)
+
+Space: O(1) (in-place)
+
+✔ Optimal solution
+
+🧠 One-Line Interview Explanation
+
+“I use the Dutch National Flag algorithm with three pointers to sort 0s, 1s, and 2s in one pass.”
+
+⚠️ Common Mistakes to Avoid
+
+❌ Incrementing mid after swapping with high
+❌ Using sorting (O(n log n))
+❌ Using extra arrays

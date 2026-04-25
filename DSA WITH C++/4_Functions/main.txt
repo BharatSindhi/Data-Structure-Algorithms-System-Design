@@ -1,0 +1,108 @@
+⭐ FUNCTIONS in C++ (Definition)
+
+A function in C++ is a block of code that performs a specific task and can be reused whenever needed.
+Functions help make programs modular, readable, and easy to manage.
+
+⭐ Why Functions?
+
+Avoid repetition of code
+
+Improve readability
+
+Easy debugging
+
+Code reusability
+
+Divide big programs into smaller parts
+
+⭐ Types of Functions
+
+Built-in Functions
+Already provided by C++
+Example: sqrt(), pow(), strlen()
+
+User-Defined Functions
+Created by the programmer
+
+⭐ Syntax of a User-Defined Function
+return_type function_name(parameters) {
+    // body of function
+}
+
+⭐ Example 1: Simple Function Without Parameters
+void greet() {
+    cout << "Hello!";
+}
+
+
+Calling the function:
+
+greet();
+
+⭐ Example 2: Function With Parameters
+void add(int a, int b) {
+    cout << a + b;
+}
+
+
+Calling:
+
+add(5, 3);
+
+⭐ Example 3: Function With Return Value
+int square(int x) {
+    return x * x;
+}
+
+
+Calling:
+
+int result = square(4);
+
+⭐ Example 4: Function Declaration, Definition & Call
+1. Declaration (Prototype)
+int add(int, int);
+
+2. Definition
+int add(int a, int b) {
+    return a + b;
+}
+
+3. Function Call
+int sum = add(10, 20);
+
+⭐ Pass by Value vs Pass by Reference
+Pass by Value
+
+A copy of the variable is passed.
+
+void change(int x) {
+    x = 100;
+}
+
+Pass by Reference
+
+Actual variable is passed.
+
+void change(int &x) {
+    x = 100;
+}
+
+⭐ Inline Function
+
+Used to reduce function-call overhead.
+
+inline int add(int a, int b) {
+    return a + b;
+}
+
+⭐ Short Exam Answer
+
+"A function in C++ is a block of code that performs a specific task. Functions allow code reusability and modularity.
+A function contains a return type, name, parameters, and a body."
+
+If you want, I can also give:
+✔ Difference between function declaration & definition
+✔ Programs using functions
+✔ MCQs for exams
+✔ One-page short notes

@@ -1,0 +1,114 @@
+✅ 1. Variable (Definition)
+
+A variable in C++ is a named memory location used to store data.
+The value stored in a variable can be changed during program execution.
+
+Example:
+
+int age = 20;
+
+
+Here, age is a variable that stores an integer value.
+
+Key points:
+
+It has a name.
+
+It has a data type.
+
+It stores a value in memory.
+
+Its value can be changed.
+
+✅ 2. Data Types (Definition)
+
+Data types specify the type of data a variable can store.
+They tell the compiler how much memory to allocate and what operations can be performed.
+
+Types of Data Types
+A. Basic / Primitive
+
+int – stores integers
+
+float – stores decimal numbers (single precision)
+
+double – stores decimal numbers (double precision)
+
+char – stores a single character
+
+bool – stores true or false
+
+B. Derived Data Types
+
+Array
+
+Pointer
+
+Function
+
+Reference
+
+C. User-Defined Data Types
+
+Structure (struct)
+
+Class
+
+Union
+
+Enum
+
+✅ 3. Operators (Definition)
+
+Operators are symbols that perform operations on variables and values.
+
+Example:
+
+a + b
+
+
++ is an operator.
+
+⭐ Types of Operators in C++
+
+A. Arithmetic Operators
+
++ - * / %
+
+B. Relational Operators
+
+== != < > <= >=
+
+C. Logical Operators
+
+&& || !
+
+D. Assignment Operators
+
+= += -= *= /= %=
+
+E. Increment / Decrement Operators
+
+++ --
+
+F. Bitwise Operators
+
+& | ^ << >> ~
+
+G. Ternary Operator
+
+condition ? value1 : value2
+
+🎯 Short Exam-Friendly Answer (Write this in your exam)
+Variable
+
+"A variable is a named memory location used to store data, whose value can change during program execution."
+
+Data Types
+
+"Data types define the type of data a variable can store and determine the amount of memory required. Examples: int, float, double, char, bool."
+
+Operators
+
+"Operators are special symbols used to perform operations on data. Example: arithmetic (+, -), relational (<, >), logical (&&, ||) and assignment (=)."
+

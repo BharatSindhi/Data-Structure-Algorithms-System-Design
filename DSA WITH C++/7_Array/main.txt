@@ -1,0 +1,145 @@
+⭐ ARRAY in C++ (Full Explanation)
+✅ Definition
+
+An array in C++ is a collection of elements of the same data type, stored in contiguous (continuous) memory locations and accessed using an index.
+
+Example:
+
+int marks[5];
+
+
+Here, marks is an array of 5 integers.
+
+⭐ Features of Arrays
+
+Stores multiple values of the same type
+
+Elements are stored next to each other in memory
+
+Index starts from 0
+
+Easy to access any element using index: arr[index]
+
+Useful for loops and large data processing
+
+⭐ Why Use Arrays?
+
+To store large amounts of data using a single variable
+
+Faster access (O(1) time for element access)
+
+Better memory management compared to separate variables
+
+⭐ Types of Arrays
+
+One-Dimensional Array
+
+Two-Dimensional Array (Matrix)
+
+Multi-Dimensional Array
+
+Character Array (C-String)
+
+⭐ 1. One-Dimensional Array
+Declaration:
+int arr[5];
+
+Initialization:
+int arr[5] = {10, 20, 30, 40, 50};
+
+Access:
+cout << arr[0];  // 10
+cout << arr[4];  // 50
+
+Loop Example:
+for(int i = 0; i < 5; i++) {
+    cout << arr[i] << " ";
+}
+
+⭐ 2. Two-Dimensional Array (Matrix)
+Declaration:
+int matrix[3][3];
+
+Initialization:
+int matrix[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+Access:
+cout << matrix[0][1];  // 2
+
+Loop Example:
+for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 3; j++) {
+        cout << matrix[i][j] << " ";
+    }
+    cout << endl;
+}
+
+⭐ 3. Character Array (String)
+Example:
+char name[6] = "Bharat";
+
+
+(Remember: last character is \0)
+
+⭐ Memory Representation
+
+If:
+
+int arr[4] = {10, 20, 30, 40};
+
+
+Memory layout:
+
+Index	Value	Address
+0	10	1000
+1	20	1004
+2	30	1008
+3	40	1012
+
+(Assuming int = 4 bytes)
+
+⭐ Advantages of Arrays
+
+Easy to use & understand
+
+Fast access using index
+
+Stores large data efficiently
+
+Used in loops and algorithms (sorting, searching)
+
+⭐ Limitations of Arrays
+
+Fixed size — cannot grow or shrink
+
+All elements must be same data type
+
+Waste memory if size is too big
+
+Insertion and deletion are difficult (O(n))
+
+⭐ Common Array Programs
+1️⃣ Find largest element:
+int largest = arr[0];
+for(int i = 1; i < n; i++) {
+    if(arr[i] > largest)
+        largest = arr[i];
+}
+
+2️⃣ Sum of array:
+int sum = 0;
+for(int i = 0; i < n; i++) {
+    sum += arr[i];
+}
+
+3️⃣ Reverse an array:
+for(int i = 0; i < n/2; i++) {
+    swap(arr[i], arr[n - i - 1]);
+}
+
+⭐ Short Exam Answer (Write This)
+
+"An array is a collection of similar data types stored in contiguous memory locations. It allows fast access using an index starting from 0. Arrays can be one-dimensional, two-dimensional, or multi-dimensional. They are useful for storing large data but have a fixed size."

@@ -1,0 +1,101 @@
+⭐ Binary Number System (Definition)
+
+The Binary Number System is a number system that uses only two digits: 0 and 1.
+It is also called the base-2 number system.
+
+Binary numbers are used by computers and digital electronics because they can easily represent ON/OFF states.
+
+⭐ Digits Used
+
+0
+
+1
+
+These digits are called bits (Binary Digits).
+
+⭐ Why Binary?
+
+Computers work with electrical signals:
+
+1 → High voltage (ON)
+
+0 → Low voltage (OFF)
+
+Binary is reliable, simple, and easy for machines to process.
+
+⭐ Place Values in Binary
+
+Just like decimal uses powers of 10,
+Binary uses powers of 2:
+
+Place	Value
+2³	8
+2²	4
+2¹	2
+2⁰	1
+
+⭐ Example: Convert Binary to Decimal
+
+Convert 1011₂ to decimal:
+
+1 × 2³ = 8
+0 × 2² = 0
+1 × 2¹ = 2
+1 × 2⁰ = 1
+-------------------
+Total = 8 + 0 + 2 + 1 = 11₁₀
+
+
+So, 1011₂ = 11₁₀.
+
+⭐ Example: Convert Decimal to Binary
+
+Convert 13₁₀ to binary:
+
+Divide by 2:
+
+Step	Number	Quotient	Remainder
+1	13	6	1
+2	6	3	0
+3	3	1	1
+4	1	0	1
+
+Now write remainders from bottom to top:
+
+1101₂
+
+So, 13₁₀ = 1101₂.
+
+⭐ Binary Arithmetic
+
+Just like decimal, binary also supports:
+
+1. Binary Addition
+0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 10   (carry 1)
+
+Example:
+  1011
++ 0101
+--------
+ 10000
+
+⭐ Applications of Binary
+
+Computers & processors
+
+Memory storage
+
+Networking
+
+Digital circuits
+
+Encryption
+
+Programming (bitwise operations)
+
+⭐ Short Exam Answer
+
+"The binary number system is a base-2 number system that uses only two digits: 0 and 1. Each digit is called a bit. It is used in computers and digital systems because it represents the ON/OFF states of electronic circuits."

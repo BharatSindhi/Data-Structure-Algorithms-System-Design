@@ -1,0 +1,41 @@
+✅ User Input (Definition)
+
+User Input in C++ means taking data from the user during program execution.
+C++ uses cin (pronounced “see-in”) to read input from the keyboard.
+
+⭐ cin – Standard Input Stream
+
+cin is used along with the extraction operator >> to take input.
+
+Syntax
+cin >> variable;
+
+⭐ Example 1: Taking an integer input
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "Your age is: " << age;
+}
+
+⭐ Example 2: Taking multiple inputs
+int a, b;
+cin >> a >> b;
+
+⭐ Example 3: Taking a string with no spaces
+string name;
+cin >> name;
+
+⭐ Example 4: Taking a full line (with spaces)
+
+getline() is used for input with spaces.
+
+string fullName;
+getline(cin, fullName);
+
+🎯 Short Exam Answer
+
+"User input in C++ is taken using the cin object and the extraction operator >>. It reads data from the keyboard and stores it in variables."

@@ -1,0 +1,69 @@
+✅ Type Casting (Definition)
+
+Type Casting in C++ is the process of converting one data type into another.
+It allows you to change the type of a variable so that it can be used in a different way.
+
+Example:
+
+int a = 5;z
+float b = (float)a;
+
+
+Here, the integer a is converted into a float.
+
+⭐ Why Type Casting is Needed?
+
+To perform operations between different data types.
+
+To avoid data loss or to force a conversion.
+
+To match function argument types.
+
+⭐ Types of Type Casting in C++
+1. Implicit Type Casting (Automatic)
+
+Also called type promotion.
+The compiler automatically converts a smaller type to a larger type.
+
+Example:
+
+int a = 10;
+float b = a;   // int → float (automatic)
+
+2. Explicit Type Casting (Manual)
+
+You convert the type manually using cast operators.
+
+Example:
+
+float x = 5.99;
+int y = (int)x;   // manual type casting
+
+⭐ Type Casting Methods
+
+A. C-Style Casting
+int x = (int)5.75;
+
+B. Function-Style Casting
+int x = int(5.75);
+
+C. C++ Type Casting (Safer)
+
+Used in OOP, pointers, classes.
+
+static_cast<>()
+
+dynamic_cast<>()
+
+const_cast<>()
+
+reinterpret_cast<>()
+
+Example:
+
+float a = 10.5;
+int b = static_cast<int>(a);
+
+🎯 Short Answer for Exams
+
+"Type casting is the process of converting a variable from one data type to another. It can be done automatically (implicit) or manually (explicit) using cast operators such as (int), static_cast, etc."

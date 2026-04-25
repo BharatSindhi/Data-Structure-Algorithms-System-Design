@@ -1,0 +1,138 @@
+🔥 Two Pointer Technique (DSA – Step-by-Step)
+
+The Two Pointer technique is a powerful optimization used to solve array/string problems efficiently—often reducing O(n²) to O(n).
+
+🧠 What Is Two Pointer?
+
+Instead of using nested loops, we use two indices (pointers) that move through the data based on conditions.
+
+When to Use It
+
+Array or string traversal
+
+Sorted arrays (very common)
+
+Finding pairs / subarrays
+
+Problems with sum, distance, comparison
+
+Removing duplicates / reversing / partitioning
+
+🧩 Common Patterns (Know These)
+1️⃣ Opposite Ends (Left–Right)
+
+Start one pointer at the beginning, one at the end
+
+Move inward based on conditions
+
+Use cases: Pair sum, reverse array/string, palindrome
+
+2️⃣ Same Direction (Fast–Slow)
+
+Both start at the beginning
+
+One moves faster than the other
+
+Use cases: Remove duplicates, sliding window basics
+
+3️⃣ Sliding Window (Special Two Pointer)
+
+Maintain a window [left, right]
+
+Expand right, shrink left
+
+Use cases: Subarray sum, longest substring
+
+✅ Pattern 1: Left–Right (Classic)
+🔹 Example: Pair with Given Sum (Sorted Array)
+
+Problem: Check if any pair sums to target.
+
+bool hasPairWithSum(vector<int>& arr, int target) {
+    int left = 0, right = arr.size() - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == target) return true;
+        else if (sum < target) left++;
+        else right--;
+    }
+    return false;
+}
+
+🧠 Logic
+
+Sum too small → move left++
+
+Sum too large → move right--
+
+⏱ Time: O(n)
+🧠 Why it works: Sorted order lets us adjust intelligently.
+
+✅ Pattern 2: Fast–Slow Pointers
+🔹 Example: Remove Duplicates (Sorted Array)
+int removeDuplicates(vector<int>& nums) {
+    int slow = 0;
+    for (int fast = 1; fast < nums.size(); fast++) {
+        if (nums[fast] != nums[slow]) {
+            slow++;
+            nums[slow] = nums[fast];
+        }
+    }
+    return slow + 1;
+}
+
+🧠 Logic
+
+slow tracks unique position
+
+fast scans ahead
+
+⏱ Time: O(n)
+📦 Space: O(1)
+
+✅ Pattern 3: Sliding Window (Two Pointer)
+🔹 Example: Maximum Sum Subarray of Size k
+int maxSumSubarray(vector<int>& nums, int k) {
+    int left = 0, sum = 0, maxSum = 0;
+
+    for (int right = 0; right < nums.size(); right++) {
+        sum += nums[right];
+        if (right - left + 1 == k) {
+            maxSum = max(maxSum, sum);
+            sum -= nums[left];
+            left++;
+        }
+    }
+    return maxSum;
+}
+
+🧠 Logic
+
+Expand window with right
+
+Shrink with left when size exceeds k
+
+🧪 How to Decide Pointer Movement (Exam Trick)
+
+Ask yourself:
+
+What condition makes it better/worse?
+
+If improving → move pointer that helps
+
+If worsening → move pointer that fixes
+
+❌ Common Mistakes
+
+Using two pointers on unsorted arrays without sorting
+
+Forgetting loop condition (left < right)
+
+Moving both pointers blindly
+
+Not updating answer before shrinking window
+
+🧠 One-Line Interview Explanation
+
+“Two pointers reduce unnecessary comparisons by moving indices based on conditions, achieving linear time.”

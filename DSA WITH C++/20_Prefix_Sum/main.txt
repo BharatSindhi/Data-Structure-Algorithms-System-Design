@@ -1,0 +1,133 @@
+⭐ PREFIX SUM (DSA)
+✅ Definition
+
+A Prefix Sum is an array where each element at index i stores the sum of all elements from index 0 to i of the original array.
+
+📌 In simple words:
+
+Prefix sum helps you quickly find the sum of any subarray.
+
+⭐ Why Prefix Sum?
+
+Without prefix sum:
+
+Subarray sum → O(n) every time
+
+With prefix sum:
+
+Subarray sum → O(1) after preprocessing
+
+⭐ Basic Prefix Sum Formula
+
+For an array arr:
+
+prefix[0] = arr[0]
+prefix[i] = prefix[i-1] + arr[i]
+
+⭐ Example
+Original Array
+arr = [2, 4, 6, 8, 10]
+
+Prefix Sum Array
+prefix = [2, 6, 12, 20, 30]
+
+⭐ How to Calculate Subarray Sum (l to r)
+Formula:
+sum(l, r) = prefix[r] - prefix[l - 1]
+
+Special case:
+If l == 0 → sum = prefix[r]
+
+⭐ Worked Example
+
+Find sum from index 1 to 3:
+
+arr = [2, 4, 6, 8, 10]
+prefix = [2, 6, 12, 20, 30]
+
+sum(1,3) = prefix[3] - prefix[0]
+         = 20 - 2
+         = 18
+
+⭐ C++ Code: Prefix Sum
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {2, 4, 6, 8, 10};
+    int n = 5;
+
+    int prefix[n];
+    prefix[0] = arr[0];
+
+    for(int i = 1; i < n; i++) {
+        prefix[i] = prefix[i-1] + arr[i];
+    }
+
+    int l = 1, r = 3;
+
+    int sum;
+    if(l == 0)
+        sum = prefix[r];
+    else
+        sum = prefix[r] - prefix[l-1];
+
+    cout << "Subarray Sum = " << sum;
+}
+
+⭐ Time & Space Complexity
+Step	Complexity
+Build prefix array	O(n)
+Each query	O(1)
+Extra space	O(n)
+⭐ Prefix Sum in 2D Array (Matrix)
+
+Used for submatrix sum queries.
+
+Formula (2D Prefix):
+prefix[i][j] = arr[i][j]
+             + prefix[i-1][j]
+             + prefix[i][j-1]
+             - prefix[i-1][j-1]
+
+⭐ Common Prefix Sum Problems (VERY IMPORTANT)
+🔹 1. Range Sum Queries
+
+Given multiple queries, find sum of subarrays.
+
+🔹 2. Equilibrium Index
+
+Index where left sum = right sum.
+
+🔹 3. Subarray with Given Sum
+
+Use prefix sum + hashing.
+
+🔹 4. Maximum Subarray Sum (Optimized)
+
+Kadane’s algorithm is related.
+
+🔹 5. Difference Array (Range Updates)
+⭐ Prefix Sum vs Brute Force
+Method	Time per Query
+Brute force	O(n)
+Prefix Sum	O(1)
+⭐ Common Mistakes ❌
+
+Forgetting l == 0 case
+
+Off-by-one indexing errors
+
+Overflow (use long long)
+
+Rebuilding prefix sum for every query
+
+⭐ Short Exam Answer
+
+"A prefix sum array stores cumulative sums of elements. It allows fast computation of subarray sums in O(1) time after O(n) preprocessing."
+
+🎯 Interview Tip
+
+Always say:
+
+“I precomputed prefix sums to optimize range sum queries from O(n) to O(1).”

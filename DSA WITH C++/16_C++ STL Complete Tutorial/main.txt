@@ -1,0 +1,283 @@
+🚀 C++ STL – COMPLETE GUIDE
+🔹 What is STL?
+
+STL (Standard Template Library) is a collection of generic classes and functions that provide ready-made data structures and algorithms.
+
+👉 It helps you:
+
+Write less code
+
+Avoid reinventing data structures
+
+Write efficient & clean programs
+
+🧠 STL Has 4 Major Components
+1️⃣ Containers
+2️⃣ Iterators
+3️⃣ Algorithms
+4️⃣ Functors (Function Objects)
+
+1️⃣ STL CONTAINERS (MOST IMPORTANT)
+
+Containers store data.
+
+🔹 Types of Containers
+A. Sequence Containers
+
+Store elements in linear order.
+
+Container	Use Case
+vector	Dynamic array
+array	Fixed-size array
+deque	Double-ended queue
+list	Doubly linked list
+forward_list	Singly linked list
+B. Associative Containers
+
+Store sorted data.
+
+Container	Property
+set	Unique, sorted
+multiset	Duplicate allowed
+map	Key–value, unique key
+multimap	Duplicate keys
+C. Unordered Containers (Hashing)
+
+Fast access, not sorted.
+
+Container	Avg Time
+unordered_set	O(1)
+unordered_map	O(1)
+D. Container Adaptors
+
+Special-purpose containers.
+
+Container	Use
+stack	LIFO
+queue	FIFO
+priority_queue	Heap
+🔹 VECTOR (MOST USED)
+#include <vector>
+vector<int> v;
+
+Common Functions
+v.push_back(10);
+v.pop_back();
+v.size();
+v.empty();
+v.front();
+v.back();
+v.clear();
+
+Traversal
+for(int x : v) cout << x;
+
+
+⏱ Time:
+
+Access: O(1)
+
+Insert at end: O(1) amortized
+
+Insert in middle: O(n)
+
+🔹 DEQUE
+
+Insert/delete at both ends.
+
+deque<int> dq;
+dq.push_front(1);
+dq.push_back(2);
+dq.pop_front();
+dq.pop_back();
+
+🔹 LIST
+
+Doubly linked list.
+
+list<int> l;
+l.push_back(10);
+l.push_front(20);
+l.remove(10);
+
+
+⏱ Insert/Delete: O(1)
+❌ No random access
+
+🔹 SET
+
+Sorted
+
+Unique elements
+
+set<int> s;
+s.insert(10);
+s.insert(5);
+s.insert(10); // ignored
+
+Important
+s.find(5);
+s.count(10);
+s.erase(5);
+
+
+⏱ Time: O(log n)
+
+🔹 MAP
+
+Key–Value pair (sorted by key).
+
+map<int, string> mp;
+mp[1] = "one";
+mp.insert({2, "two"});
+
+
+Traversal:
+
+for(auto it : mp)
+    cout << it.first << " " << it.second;
+
+
+⏱ Time: O(log n)
+
+🔹 UNORDERED_MAP
+
+Hash table based.
+
+unordered_map<int, int> um;
+um[1] = 100;
+
+
+⏱ Avg Time: O(1)
+❌ Not sorted
+
+🔹 STACK
+stack<int> st;
+st.push(10);
+st.pop();
+st.top();
+
+🔹 QUEUE
+queue<int> q;
+q.push(10);
+q.pop();
+q.front();
+
+🔹 PRIORITY_QUEUE (Heap)
+Max Heap (default)
+priority_queue<int> pq;
+
+Min Heap
+priority_queue<int, vector<int>, greater<int>> pq;
+
+2️⃣ ITERATORS
+
+Iterators are like pointers used to access elements.
+
+vector<int> v = {1,2,3};
+vector<int>::iterator it;
+
+for(it = v.begin(); it != v.end(); it++)
+    cout << *it;
+
+Types
+
+begin(), end()
+
+rbegin(), rend()
+
+3️⃣ STL ALGORITHMS (VERY IMPORTANT)
+
+Header:
+
+#include <algorithm>
+
+🔹 Sorting
+sort(v.begin(), v.end());
+sort(v.begin(), v.end(), greater<int>());
+
+
+⏱ O(n log n)
+
+🔹 Searching
+binary_search(v.begin(), v.end(), key);
+
+🔹 Min / Max
+min(a, b);
+max(a, b);
+*max_element(v.begin(), v.end());
+*min_element(v.begin(), v.end());
+
+🔹 Count / Find
+count(v.begin(), v.end(), 5);
+find(v.begin(), v.end(), 5);
+
+🔹 Reverse
+reverse(v.begin(), v.end());
+
+🔹 Accumulate
+#include <numeric>
+accumulate(v.begin(), v.end(), 0);
+
+🔹 Unique
+v.erase(unique(v.begin(), v.end()), v.end());
+
+
+(Removes duplicates from sorted vector)
+
+4️⃣ FUNCTORS (FUNCTION OBJECTS)
+
+Objects that behave like functions.
+
+sort(v.begin(), v.end(), greater<int>());
+
+
+Here greater<int> is a functor.
+
+🔥 MOST IMPORTANT STL INTERVIEW QUESTIONS
+Q1. Vector vs Array
+
+Vector → dynamic
+
+Array → fixed size
+
+Q2. Map vs Unordered_map
+Map	Unordered_map
+Sorted	Not sorted
+O(log n)	O(1) avg
+Tree	Hash table
+Q3. When to use priority_queue?
+
+K largest / smallest
+
+Scheduling
+
+Greedy algorithms
+
+🧠 STL CHEAT DECISION TABLE
+Requirement	Use
+Dynamic array	vector
+Sorted data	set/map
+Fast lookup	unordered_map
+LIFO	stack
+FIFO	queue
+Min/Max quickly	priority_queue
+🧪 STL IN DSA & CP
+
+STL is used in:
+
+Two Pointer
+
+Sliding Window
+
+Heap problems
+
+Graphs
+
+Greedy
+
+DP optimizations
+
+🧠 ONE-LINE EXAM ANSWER
+
+“STL is a collection of generic containers, algorithms, and iterators that provide efficient data handling.”

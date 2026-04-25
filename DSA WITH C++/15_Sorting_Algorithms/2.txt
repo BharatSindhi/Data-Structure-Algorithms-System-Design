@@ -1,0 +1,104 @@
+🧠 What Optimization You Used
+
+You added:
+
+bool isSwap = false;
+
+
+This checks:
+
+Did any swap happen in this pass?
+
+❌ If no swap → array already sorted → stop
+
+✅ If swap happened → continue next pass
+
+✅ Your Code (Reference)
+void bubbleSort(int arr[], int n) { // O(n^2)
+    for (int i = 0; i < n - 1; i++) {
+        bool isSwap = false;
+
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                isSwap = true;
+            }
+        }
+
+        if (!isSwap) {
+            return;   // array already sorted
+        }
+    }
+}
+
+🔍 Step-by-Step Explanation
+🔹 Outer Loop (i)
+
+Controls passes
+
+Maximum passes = n - 1
+
+🔹 Inner Loop (j)
+
+Compares adjacent elements
+
+Pushes the largest unsorted element to the end
+
+🔹 isSwap Flag
+bool isSwap = false;
+
+
+Initially assumes array is sorted
+
+isSwap = true;
+
+
+Set to true when a swap occurs
+
+if (!isSwap) return;
+
+
+If no swaps → already sorted → exit early
+
+🧪 DRY RUN (MOST IMPORTANT 🔥)
+Input Array
+[1, 2, 7, 9, 17]
+
+🔁 Pass 1 (i = 0)
+Comparison	Swap?	Array
+1 vs 2	❌	1 2 7 9 17
+2 vs 7	❌	1 2 7 9 17
+7 vs 9	❌	1 2 7 9 17
+9 vs 17	❌	1 2 7 9 17
+
+✔ isSwap = false
+
+if (!isSwap) return;
+
+
+➡ Function exits here
+
+🔚 Sorting Ends After 1 Pass
+
+Because array is already sorted
+
+✅ Output
+1 2 7 9 17
+
+⏱ Time & Space Complexity
+Case	Time
+Best (already sorted)	O(n) ✅
+Average	O(n²)
+Worst	O(n²)
+Space	O(1)
+🧠 Why This Optimization Is Important
+
+Avoids unnecessary passes
+
+Makes Bubble Sort efficient for nearly sorted arrays
+
+Frequently asked in exams & interviews
+
+🧠 One-Line Interview Explanation
+
+“I use a swap flag to detect if the array is already sorted and terminate early.”

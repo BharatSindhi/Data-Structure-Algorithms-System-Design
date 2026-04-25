@@ -1,0 +1,197 @@
+⭐ SORTING ALGORITHMS (DSA)
+✅ Definition
+
+A sorting algorithm is a method used to arrange elements of a list or array in a specific order, usually ascending or descending.
+
+Example:
+Unsorted → 50 20 40 10 30
+Sorted → 10 20 30 40 50
+
+⭐ Why Sorting is Important?
+
+Makes searching faster (Binary Search)
+
+Improves data organization
+
+Required in databases, ranking systems
+
+Used in many DSA problems
+
+⭐ Types of Sorting Algorithms
+🔹 Based on Technique
+
+Comparison-based
+
+Non-comparison-based
+
+🔹 Based on Efficiency
+
+Simple sorting (O(n²))
+
+Efficient sorting (O(n log n))
+
+⭐ 1. Bubble Sort
+🔹 Idea
+
+Repeatedly swap adjacent elements if they are in the wrong order.
+
+Example
+5 3 4 1
+→ 3 4 1 5
+→ 3 1 4 5
+→ 1 3 4 5
+
+Pseudocode
+for i = 0 to n-1
+  for j = 0 to n-i-1
+    if arr[j] > arr[j+1]
+      swap
+
+Complexity
+
+Best: O(n) (optimized)
+
+Average/Worst: O(n²)
+
+Space: O(1)
+
+⭐ 2. Selection Sort
+🔹 Idea
+
+Select the minimum element and place it at the beginning.
+
+Example
+64 25 12 22 11
+→ 11 25 12 22 64
+
+Complexity
+
+Best/Worst: O(n²)
+
+Space: O(1)
+
+✔ Fewer swaps
+❌ Slow for large data
+
+⭐ 3. Insertion Sort
+🔹 Idea
+
+Insert each element into its correct position in the sorted part.
+
+Example
+8 3 5 2
+→ 3 8 5 2
+→ 3 5 8 2
+→ 2 3 5 8
+
+Complexity
+
+Best: O(n)
+
+Worst: O(n²)
+
+Space: O(1)
+
+✔ Best for small or nearly sorted arrays
+
+⭐ 4. Merge Sort (Divide & Conquer)
+🔹 Idea
+
+Divide array into halves
+
+Sort each half
+
+Merge sorted halves
+
+Recurrence
+T(n) = 2T(n/2) + O(n)
+
+Complexity
+
+Best/Average/Worst: O(n log n)
+
+Space: O(n)
+
+✔ Stable & efficient
+❌ Uses extra memory
+
+⭐ 5. Quick Sort
+🔹 Idea
+
+Choose a pivot
+
+Place smaller elements on left, larger on right
+
+Recursively sort
+
+Complexity
+
+Best/Average: O(n log n)
+
+Worst: O(n²)
+
+Space: O(log n)
+
+✔ Very fast in practice
+❌ Worst case possible
+
+⭐ 6. Heap Sort
+🔹 Idea
+
+Build a heap
+
+Repeatedly remove max/min element
+
+Complexity
+
+All cases: O(n log n)
+
+Space: O(1)
+
+✔ No extra memory
+❌ Not stable
+
+⭐ 7. Counting Sort (Non-Comparison)
+🔹 Idea
+
+Count frequency of elements.
+
+Complexity
+
+Time: O(n + k)
+
+Space: O(k)
+
+✔ Very fast for small range
+❌ Limited usage
+
+⭐ Comparison Table (VERY IMPORTANT FOR EXAM)
+Algorithm	Best	Average	Worst	Space	Stable
+Bubble	O(n)	O(n²)	O(n²)	O(1)	Yes
+Selection	O(n²)	O(n²)	O(n²)	O(1)	No
+Insertion	O(n)	O(n²)	O(n²)	O(1)	Yes
+Merge	O(n log n)	O(n log n)	O(n log n)	O(n)	Yes
+Quick	O(n log n)	O(n log n)	O(n²)	O(log n)	No
+Heap	O(n log n)	O(n log n)	O(n log n)	O(1)	No
+Counting	O(n+k)	O(n+k)	O(n+k)	O(k)	Yes
+⭐ Which Sorting Algorithm to Use?
+
+Small data → Insertion Sort
+
+Large data → Merge / Quick Sort
+
+Memory constraint → Heap Sort
+
+Nearly sorted → Insertion Sort
+
+Stable sort needed → Merge Sort
+
+⭐ Short Exam Answer
+
+"Sorting algorithms arrange data in a specific order. Common sorting algorithms include Bubble, Selection, Insertion, Merge, Quick, and Heap sort. Efficient sorting algorithms have time complexity O(n log n)."
+
+🎯 Interview Tip
+
+Always mention:
+
+“Time complexity, space complexity, and stability.”

@@ -1,0 +1,107 @@
+🔥 Moore’s Voting Algorithm (Majority Element)
+
+Moore’s Voting Algorithm is an optimal O(n) time, O(1) space technique to find the majority element in an array.
+
+🧠 Problem Definition
+
+A majority element is an element that appears more than ⌊n/2⌋ times in the array.
+
+Example
+
+nums = [2,2,1,1,1,2,2]
+Output = 2
+
+
+⚠️ The algorithm assumes a majority element exists (as guaranteed in many problems like LeetCode 169).
+
+💡 Core Intuition (Very Important)
+
+Think of it as cancelling votes.
+
+Same numbers support the current candidate.
+
+Different numbers cancel a vote.
+
+A true majority cannot be cancelled completely.
+
+🔑 Algorithm (Step-by-Step)
+
+Initialize:
+
+candidate = any value
+
+count = 0
+
+Traverse the array:
+
+If count == 0, set candidate = current element
+
+If current element == candidate, increment count
+
+Else decrement count
+
+At the end, candidate is the majority element.
+
+✅ C++ Implementation (Interview-Ready)
+#include <vector>
+using namespace std;
+
+int majorityElement(vector<int>& nums) {
+    int candidate = 0;
+    int count = 0;
+
+    for (int x : nums) {
+        if (count == 0) {
+            candidate = x;
+        }
+        if (x == candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    return candidate;
+}
+
+🧪 Dry Run (Most Important 🔥)
+
+Input:
+
+nums = [2,2,1,1,1,2,2]
+
+Step	Element	Candidate	Count	Explanation
+1	2	2	1	choose candidate
+2	2	2	2	same → +
+3	1	2	1	diff → -
+4	1	2	0	cancelled
+5	1	1	1	new candidate
+6	2	1	0	cancelled
+7	2	2	1	new candidate
+
+✔ Answer = 2
+
+🧠 Why It Works (Interview Explanation)
+
+Every time we see a different element, we cancel one occurrence of the candidate.
+
+Since the majority element appears more than n/2 times, it survives all cancellations.
+
+⏱ Complexity
+
+Time: O(n)
+
+Space: O(1) ✅ optimal
+
+⚠️ When Majority Is NOT Guaranteed
+
+Add a verification pass:
+
+bool isMajority(vector<int>& nums, int candidate) {
+    int cnt = 0;
+    for (int x : nums) if (x == candidate) cnt++;
+    return cnt > nums.size() / 2;
+}
+
+🧠 One-Line Interview Answer
+
+“Moore’s Voting Algorithm cancels out different elements, ensuring the true majority element remains.”

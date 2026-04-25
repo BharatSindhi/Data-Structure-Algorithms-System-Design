@@ -1,0 +1,147 @@
+A while loop in C++ is a control structure that repeats a block of code as long as the given condition is true.
+
+It is used when the number of repetitions is not known in advance.
+
+⭐ Syntax
+while (condition) {
+    // code to execute
+}
+
+Meaning:
+
+The condition is checked first.
+
+If the condition is true, the loop runs.
+
+If the condition is false, the loop stops.
+
+⭐ Example 1: Print numbers 1 to 5
+int i = 1;
+while (i <= 5) {
+    cout << i << " ";
+    i++;
+}
+
+⭐ Example 2: Print countdown from 10 to 1
+int n = 10;
+while (n >= 1) {
+    cout << n << " ";
+    n--;
+}
+
+⭐ Example 3: Sum of numbers until user enters 0
+int num, sum = 0;
+
+cout << "Enter numbers (0 to stop): ";
+cin >> num;
+
+while (num != 0) {
+    sum += num;
+    cin >> num;
+}
+
+cout << "Sum = " << sum;
+
+⭐ Infinite While Loop
+while (true) {
+    // runs forever
+}
+
+⭐ Important Characteristics
+
+Entry-controlled loop → condition is checked before running.
+
+Used when the number of iterations is unknown.
+
+Must update variables inside the loop, otherwise it becomes infinite.
+
+⭐ Short Exam Answer
+
+"A while loop in C++ repeatedly executes a block of code as long as the condition remains true. It is an entry-controlled loop because the condition is checked before the loop runs."
+
+
+
+Here is the **While Loop DRY RUN** explained in the **same easy and copy-paste format** as the for loop.
+
+---
+
+# ⭐ WHILE LOOP (Definition)
+
+A **while loop** in C++ repeats a block of code **as long as the condition is true**.
+
+---
+
+# ⭐ Syntax
+
+```cpp
+while (condition) {
+    // code to execute
+}
+```
+
+---
+
+# ⭐ Example: Print numbers 1 to 5 using while loop
+
+```cpp
+int i = 1;
+
+while (i <= 5) {
+    cout << i << " ";
+    i++;
+}
+```
+
+---
+
+# ⭐ DRY RUN (Step-by-Step Explanation)
+
+| Step | Action                       | Value of i | Condition (i <= 5?) | Output     |
+| ---- | ---------------------------- | ---------- | ------------------- | ---------- |
+| 1    | **Initialization** (`i = 1`) | 1          | Not checked yet     | Nothing    |
+| 2    | **Check Condition**          | 1          | TRUE                | loop runs  |
+| 3    | **Execute Body**             | 1          | TRUE                | prints `1` |
+| 4    | **Update** (`i++`)           | 2          | -                   | -          |
+| 5    | **Check Condition**          | 2          | TRUE                | loop runs  |
+| 6    | **Execute Body**             | 2          | TRUE                | prints `2` |
+| 7    | **Update**                   | 3          | -                   | -          |
+| 8    | **Check Condition**          | 3          | TRUE                | loop runs  |
+| 9    | **Execute Body**             | 3          | TRUE                | prints `3` |
+| 10   | **Update**                   | 4          | -                   | -          |
+| 11   | **Check Condition**          | 4          | TRUE                | loop runs  |
+| 12   | **Execute Body**             | 4          | TRUE                | prints `4` |
+| 13   | **Update**                   | 5          | -                   | -          |
+| 14   | **Check Condition**          | 5          | TRUE                | loop runs  |
+| 15   | **Execute Body**             | 5          | TRUE                | prints `5` |
+| 16   | **Update**                   | 6          | -                   | -          |
+| 17   | **Check Condition**          | 6          | FALSE               | loop stops |
+
+Final Output:
+
+```
+1 2 3 4 5
+```
+
+---
+
+# ⭐ EASY EXPLANATION (Copy-Paste Ready)
+
+“A while loop checks the condition first.
+If the condition is **true**, the code inside the loop runs.
+After each iteration, we usually update the variable.
+The loop stops when the condition becomes **false**.”
+
+---
+
+# ⭐ DRY RUN (Short Version)
+
+```text
+i = 1 → condition true → print 1 → i becomes 2  
+i = 2 → condition true → print 2 → i becomes 3  
+i = 3 → condition true → print 3 → i becomes 4  
+i = 4 → condition true → print 4 → i becomes 5  
+i = 5 → condition true → print 5 → i becomes 6  
+i = 6 → condition false → stop
+```
+
+

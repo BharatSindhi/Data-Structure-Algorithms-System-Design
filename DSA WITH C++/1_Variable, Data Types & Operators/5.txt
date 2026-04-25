@@ -1,0 +1,127 @@
+⭐ OPERATORS IN C++ (FULL NOTES)
+✅ Definition
+
+Operators are symbols used to perform operations on variables and values.
+They help in mathematical calculations, comparisons, logical decisions, and more.
+
+⭐ Types of Operators in C++
+
+Below is the complete list with examples.
+
+1. Arithmetic Operators
+
+Used for basic mathematical operations.
+
+Operator	Meaning	Example
++	Addition	a + b
+-	Subtraction	a - b
+*	Multiplication	a * b
+/	Division	a / b
+%	Modulus	a % b (remainder)
+
+2. Relational (Comparison) Operators
+
+Used to compare two values.
+Result is true (1) or false (0).
+
+Operator	Meaning	Example
+==	Equal to	a == b
+!=	Not equal to	a != b
+>	Greater than	a > b
+<	Less than	a < b
+>=	Greater or equal	a >= b
+<=	Less or equal	a <= b
+
+3. Logical Operators
+
+Used to combine multiple conditions.
+
+Operator	Meaning	Example
+&&	Logical AND	(a > b) && (b > c)
+||	Logical OR	(a > b) || (b > c)
+!	NOT	!(a > b)
+
+4. Assignment Operators
+
+Used to assign values.
+
+Operator	Meaning	Example
+=	Assign	a = 5
++=	Add and assign	a += 3
+-=	Sub and assign	a -= 3
+*=	Mul and assign	a *= 2
+/=	Div and assign	a /= 2
+%=	Mod and assign	a %= 2
+
+5. Increment & Decrement Operators
+
+Used to increase/decrease value by 1.
+
+Operator	Meaning	Example
+++	Increment	a++ or ++a
+--	Decrement	a-- or --a
+
+6. Bitwise Operators
+
+Operate on bits (0s and 1s).
+
+Operator	Meaning	Example
+&	AND	a & b
+|	OR	a | b
+^	XOR	a ^ b
+<<	Left shift	a << 1
+>>	Right shift	a >> 1
+~	Bitwise NOT	~a
+
+7. Ternary (Conditional) Operator
+
+Short form of if-else.
+
+Syntax
+condition ? value1 : value2
+
+Example
+int result = (a > b) ? a : b;
+
+8. Unary Operators
+
+Operate on a single operand.
+
+Examples:
+
++ (Unary plus)
+
+- (Unary minus)
+
+! (Logical NOT)
+
+++ (Increment)
+
+-- (Decrement)
+
+9. Special Operators
+a) sizeof()
+
+Gives size of a data type or variable.
+
+sizeof(int);   // usually 4 bytes
+
+b) & (Address-of Operator)
+int a = 5;
+&a;   // address of a
+
+c) * (Pointer Dereference)
+int *p;
+*p;   // value at pointer
+
+d) :: (Scope Resolution Operator)
+
+Used to access global variables.
+
+e) . and -> (Member access operators)
+
+Used with objects and pointers.
+
+🎯 Short Exam Answer
+
+"Operators are special symbols used to perform operations on data. C++ supports various types including arithmetic, relational, logical, assignment, bitwise, increment/decrement, ternary, and special operators."
