@@ -13,7 +13,7 @@ using namespace std;
 // Flattened output:
 // 1 <-> 2 <-> 7 <-> 8 <-> 3
 
-
+   
 class Node {
 public:
     // Stores the node's actual data value.
