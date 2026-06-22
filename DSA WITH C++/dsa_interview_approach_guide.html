@@ -1,0 +1,253 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.tab { padding: 6px 14px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); font-size: 13px; cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); transition: all .15s; }
+.tab.active { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); font-weight: 500; }
+.panel { display: none; }
+.panel.active { display: block; }
+.step-row { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.step-row:last-child { border-bottom: none; }
+.step-num { width: 28px; height: 28px; min-width: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; margin-top: 1px; }
+.step-content h3 { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.step-content code { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 1px 5px; border-radius: 4px; color: var(--color-text-primary); }
+.tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; margin-top: 6px; margin-right: 4px; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 12px; }
+.card h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--color-text-primary); }
+.card p, .card li { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.card ul { padding-left: 16px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pattern-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.pattern-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; cursor: pointer; transition: border-color .15s; }
+.pattern-card:hover { border-color: var(--color-border-info); }
+.pattern-card .label { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+.pattern-card .hint { font-size: 11px; color: var(--color-text-secondary); }
+.detail-box { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 14px; min-height: 80px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.detail-box strong { color: var(--color-text-primary); font-weight: 500; }
+.big-tip { background: var(--color-background-success); border-left: 3px solid var(--color-text-success); border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: var(--color-text-success); line-height: 1.5; }
+.warn-tip { background: var(--color-background-warning); border-left: 3px solid var(--color-text-warning); border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: var(--color-text-warning); line-height: 1.5; }
+.complexity-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.complexity-table th { text-align: left; padding: 6px 10px; background: var(--color-background-secondary); color: var(--color-text-secondary); font-weight: 500; font-size: 11px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.complexity-table td { padding: 7px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); }
+.complexity-table tr:last-child td { border-bottom: none; }
+.good { color: var(--color-text-success); font-weight: 500; }
+.ok { color: var(--color-text-warning); font-weight: 500; }
+.bad { color: var(--color-text-danger); font-weight: 500; }
+.ask-btn { display: inline-block; margin-top: 10px; padding: 6px 12px; font-size: 12px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); }
+.ask-btn:hover { background: var(--color-background-secondary); }
+</style>
+
+<div style="padding: 1rem 0">
+<h2 class="sr-only">DSA Interview Approach Guide — step-by-step framework, patterns, and interview tips</h2>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('approach')">7-step approach</button>
+  <button class="tab" onclick="show('patterns')">Pattern recognition</button>
+  <button class="tab" onclick="show('complexity')">Complexity cheat sheet</button>
+  <button class="tab" onclick="show('interview')">Interview tips</button>
+</div>
+
+<!-- PANEL 1: 7-step approach -->
+<div id="panel-approach" class="panel active">
+  <div class="big-tip">Follow this exact order every time — whether practicing or in a live interview.</div>
+  
+  <div class="step-row">
+    <div class="step-num" style="background:#E6F1FB;color:#185FA5">1</div>
+    <div class="step-content">
+      <h3>Understand the problem</h3>
+      <p>Read slowly. Identify: <strong>input type</strong>, <strong>output type</strong>, <strong>constraints</strong>. Don't rush to code. Ask yourself — what exactly is being asked?</p>
+      <span class="tag" style="background:#E6F1FB;color:#185FA5">2-3 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#EAF3DE;color:#3B6D11">2</div>
+    <div class="step-content">
+      <h3>Work through examples</h3>
+      <p>Take the given examples and trace them manually. Then create your own edge cases: empty input, single element, all same values, negative numbers, duplicates.</p>
+      <span class="tag" style="background:#EAF3DE;color:#3B6D11">3-5 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#FAEEDA;color:#854F0B">3</div>
+    <div class="step-content">
+      <h3>Brute force first</h3>
+      <p>State the naive solution out loud. Don't code it — just say "I can do this in O(n²) with nested loops." This proves you understand the problem and gives a baseline to improve.</p>
+      <span class="tag" style="background:#FAEEDA;color:#854F0B">1-2 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#EEEDFE;color:#534AB7">4</div>
+    <div class="step-content">
+      <h3>Identify the pattern</h3>
+      <p>Ask: Is this a sliding window? Two pointers? BFS/DFS? DP? This is the key step. Match constraints to patterns — see the Pattern tab for a quick guide.</p>
+      <span class="tag" style="background:#EEEDFE;color:#534AB7">2-3 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#E1F5EE;color:#0F6E56">5</div>
+    <div class="step-content">
+      <h3>Plan the algorithm (pseudocode)</h3>
+      <p>Write steps in plain English or pseudocode before touching actual code. Say it out loud in interviews. This catches logical errors early and shows structured thinking.</p>
+      <span class="tag" style="background:#E1F5EE;color:#0F6E56">3-4 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#FAECE7;color:#993C1D">6</div>
+    <div class="step-content">
+      <h3>Code it up</h3>
+      <p>Write clean code. Use meaningful variable names. Handle edge cases as you go. Don't optimize prematurely — get it working correctly first.</p>
+      <span class="tag" style="background:#FAECE7;color:#993C1D">10-15 min</span>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num" style="background:#F1EFE8;color:#444441">7</div>
+    <div class="step-content">
+      <h3>Test & optimize</h3>
+      <p>Run through your examples manually on the code. Check edge cases. State the time and space complexity. Then discuss potential optimizations if time allows.</p>
+      <span class="tag" style="background:#F1EFE8;color:#444441">3-5 min</span>
+    </div>
+  </div>
+
+  <button class="ask-btn" onclick="sendPrompt('Give me a DSA problem to practice this 7-step approach on ↗')">Practice with a problem ↗</button>
+</div>
+
+<!-- PANEL 2: Pattern recognition -->
+<div id="panel-patterns" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:14px">Click any pattern to learn when to use it.</p>
+  <div class="pattern-grid" id="pgrid">
+    <div class="pattern-card" onclick="showDetail('tp')"><div class="label">Two pointers</div><div class="hint">Sorted array, pairs</div></div>
+    <div class="pattern-card" onclick="showDetail('sw')"><div class="label">Sliding window</div><div class="hint">Subarray / substring</div></div>
+    <div class="pattern-card" onclick="showDetail('bfs')"><div class="label">BFS</div><div class="hint">Shortest path, levels</div></div>
+    <div class="pattern-card" onclick="showDetail('dfs')"><div class="label">DFS / backtrack</div><div class="hint">All paths, combinations</div></div>
+    <div class="pattern-card" onclick="showDetail('dp')"><div class="label">Dynamic programming</div><div class="hint">Overlapping subproblems</div></div>
+    <div class="pattern-card" onclick="showDetail('bs')"><div class="label">Binary search</div><div class="hint">Sorted, search space</div></div>
+    <div class="pattern-card" onclick="showDetail('heap')"><div class="label">Heap / priority queue</div><div class="hint">Top K, merge K</div></div>
+    <div class="pattern-card" onclick="showDetail('hash')"><div class="label">HashMap / set</div><div class="hint">Frequency, lookup O(1)</div></div>
+    <div class="pattern-card" onclick="showDetail('mono')"><div class="label">Monotonic stack</div><div class="hint">Next greater/smaller</div></div>
+    <div class="pattern-card" onclick="showDetail('graph')"><div class="label">Graph / union-find</div><div class="hint">Connected components</div></div>
+  </div>
+
+  <div class="detail-box" id="detail-box">Select a pattern above to see when and how to use it.</div>
+  <button class="ask-btn" id="detail-ask" style="display:none" onclick="askPattern()">Ask Claude about this pattern ↗</button>
+</div>
+
+<!-- PANEL 3: Complexity -->
+<div id="panel-complexity" class="panel">
+  <div class="warn-tip">Always state time AND space complexity before finishing — interviewers expect it.</div>
+  <table class="complexity-table">
+    <thead><tr><th>Complexity</th><th>Name</th><th>Example</th><th>n=10⁶</th></tr></thead>
+    <tbody>
+      <tr><td class="good">O(1)</td><td>Constant</td><td>HashMap lookup</td><td class="good">Instant</td></tr>
+      <tr><td class="good">O(log n)</td><td>Logarithmic</td><td>Binary search</td><td class="good">~20 ops</td></tr>
+      <tr><td class="good">O(n)</td><td>Linear</td><td>Single loop</td><td class="good">1M ops</td></tr>
+      <tr><td class="ok">O(n log n)</td><td>Linearithmic</td><td>Merge sort</td><td class="ok">~20M ops</td></tr>
+      <tr><td class="bad">O(n²)</td><td>Quadratic</td><td>Nested loops</td><td class="bad">10¹² — TLE</td></tr>
+      <tr><td class="bad">O(2ⁿ)</td><td>Exponential</td><td>Brute force subsets</td><td class="bad">Way too slow</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:16px">
+    <div class="card">
+      <h3>Constraint → Expected complexity</h3>
+      <ul>
+        <li>n ≤ 20 → O(2ⁿ) or O(n!) ok (backtracking)</li>
+        <li>n ≤ 500 → O(n²) ok</li>
+        <li>n ≤ 10⁴ → O(n log n) or O(n) needed</li>
+        <li>n ≤ 10⁶ → O(n) or O(log n) required</li>
+        <li>n ≤ 10⁹ → O(log n) or O(1) only</li>
+      </ul>
+    </div>
+  </div>
+  <button class="ask-btn" onclick="sendPrompt('Explain how to calculate time and space complexity step by step with examples ↗')">Learn complexity analysis ↗</button>
+</div>
+
+<!-- PANEL 4: Interview tips -->
+<div id="panel-interview" class="panel">
+  <div class="two-col">
+    <div>
+      <div class="big-tip" style="font-size:12px">Think out loud. Silence = fail. Say everything.</div>
+      <div class="card">
+        <h3>Before you code</h3>
+        <ul>
+          <li>Repeat the problem back in your own words</li>
+          <li>Clarify ambiguities — don't assume</li>
+          <li>Ask about constraints (size, range, nulls)</li>
+          <li>State brute force, then say "I'll optimize"</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>While coding</h3>
+        <ul>
+          <li>Narrate every step you write</li>
+          <li>Name variables clearly, not <code>a</code>, <code>b</code></li>
+          <li>Write helper functions if logic is complex</li>
+          <li>Don't panic — pause, think, then speak</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="warn-tip" style="font-size:12px">Stuck? Don't freeze. Say "Let me think about this differently…"</div>
+      <div class="card">
+        <h3>After you code</h3>
+        <ul>
+          <li>Trace through example on paper/whiteboard</li>
+          <li>Check edge cases explicitly</li>
+          <li>State time + space complexity</li>
+          <li>Suggest follow-up improvements</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>When stuck — rescue moves</h3>
+        <ul>
+          <li>Draw it out (tree, graph, array)</li>
+          <li>Solve smaller version first</li>
+          <li>Ask "what info do I have at step i?"</li>
+          <li>Try every DS: stack? queue? map?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button class="ask-btn" onclick="sendPrompt('Do a mock DSA interview with me — give me a medium difficulty problem ↗')">Start mock interview ↗</button>
+</div>
+
+</div>
+
+<script>
+const patterns = {
+  tp: { name:'Two pointers', text:'<strong>Use when:</strong> Array/string is sorted OR you need pairs that sum to target. Start pointers at both ends, move inward.<br><br><strong>Signals:</strong> "sorted array", "pair with sum X", "remove duplicates", "palindrome check".<br><br><strong>Examples:</strong> Two Sum II, 3Sum, Container With Most Water, Valid Palindrome.' },
+  sw: { name:'Sliding window', text:'<strong>Use when:</strong> Need max/min subarray or substring of fixed or variable size. Expand right, shrink left when condition violated.<br><br><strong>Signals:</strong> "subarray", "substring", "contiguous", "max sum of k elements", "longest without repeating".<br><br><strong>Examples:</strong> Max Subarray, Longest Substring Without Repeating, Minimum Window Substring.' },
+  bfs: { name:'BFS', text:'<strong>Use when:</strong> Shortest path in unweighted graph/grid, level-order traversal, "minimum steps to reach".<br><br><strong>Signals:</strong> "shortest path", "minimum moves", "level by level", "nearest neighbor".<br><br><strong>Examples:</strong> Binary Tree Level Order, Word Ladder, Rotting Oranges, Number of Islands.' },
+  dfs: { name:'DFS / Backtracking', text:'<strong>Use when:</strong> Need all combinations/permutations/subsets, path problems in trees/graphs, or exploring all possibilities.<br><br><strong>Signals:</strong> "all combinations", "generate all", "find all paths", "N-Queens".<br><br><strong>Examples:</strong> Subsets, Permutations, Word Search, Combination Sum, N-Queens.' },
+  dp: { name:'Dynamic programming', text:'<strong>Use when:</strong> Problem has overlapping subproblems + optimal substructure. Ask: "can I break this into smaller same-type problems?"<br><br><strong>Signals:</strong> "max/min ways", "count paths", "longest common", "knapsack".<br><br><strong>Examples:</strong> Coin Change, LCS, 0/1 Knapsack, Climbing Stairs, Edit Distance.' },
+  bs: { name:'Binary search', text:'<strong>Use when:</strong> Input is sorted OR you can define a search space with a monotonic condition (answer is searchable).<br><br><strong>Signals:</strong> "sorted", "find minimum value that satisfies", "search in rotated array".<br><br><strong>Examples:</strong> Search in Rotated Array, Koko Eating Bananas, Find Minimum in Rotated, Median of Two Sorted Arrays.' },
+  heap: { name:'Heap / Priority Queue', text:'<strong>Use when:</strong> Need Top K elements, K closest, merging K sorted lists, or streaming data with running max/min.<br><br><strong>Signals:</strong> "top K", "K largest/smallest", "median from stream", "merge K lists".<br><br><strong>Examples:</strong> Kth Largest Element, Top K Frequent Elements, Find Median from Stream, Merge K Sorted Lists.' },
+  hash: { name:'HashMap / HashSet', text:'<strong>Use when:</strong> Need O(1) lookup, frequency count, grouping, or detecting duplicates/seen elements.<br><br><strong>Signals:</strong> "two sum", "group anagrams", "duplicate", "frequency", "first unique".<br><br><strong>Examples:</strong> Two Sum, Group Anagrams, Valid Anagram, First Missing Positive.' },
+  mono: { name:'Monotonic stack', text:'<strong>Use when:</strong> Need to find next/previous greater or smaller element, or deal with spans/ranges.<br><br><strong>Signals:</strong> "next greater element", "daily temperatures", "largest rectangle", "stock span".<br><br><strong>Examples:</strong> Daily Temperatures, Next Greater Element, Largest Rectangle in Histogram, Trapping Rain Water.' },
+  graph: { name:'Graph / Union-Find', text:'<strong>Use when:</strong> Need to detect connectivity, connected components, cycles, or merge groups efficiently.<br><br><strong>Use Union-Find for:</strong> connecting nodes dynamically, Kruskal MST, redundant connections.<br><br><strong>Examples:</strong> Number of Islands, Course Schedule, Accounts Merge, Redundant Connection.' }
+};
+let currentPattern = null;
+function showDetail(key) {
+  currentPattern = key;
+  const p = patterns[key];
+  document.getElementById('detail-box').innerHTML = `<strong>${p.name}</strong><br><br>${p.text}`;
+  document.getElementById('detail-ask').style.display = 'inline-block';
+  document.querySelectorAll('.pattern-card').forEach(c => c.style.borderColor = '');
+  event.currentTarget.style.borderColor = 'var(--color-border-info)';
+}
+function askPattern() {
+  if(currentPattern) sendPrompt('Explain the ' + patterns[currentPattern].name + ' pattern with 2 example problems and solutions ↗');
+}
+function show(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
